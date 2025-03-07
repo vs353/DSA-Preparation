@@ -59,9 +59,9 @@ public class Main {
 //        Task6_0403.oddNumInArray();
         /* Recursion */
 //        f();
-        int i = 1;
-        int n = 3;
-        int sum =0;
+//        int i = 1;
+//        int n = 3;
+//        int sum =0;
 //        RecPrintName.printNames(i,n);
 //        RecLinearly.print1ToN(i,n);
 //        RecLinearly.reverseNTo1(n,n);
@@ -70,14 +70,19 @@ public class Main {
 //        RecParameter.recParameter(n,sum);
 //        System.out.println(RecParameter.recFunctional(n));
 //        System.out.println(RecParameter.recFactorial(n));
-        int[] arr = {1,2,3,4,2};
-        int l = 0;
-        int r = arr.length-1;
+//        int[] arr = {1,2,3,4,2};
+//        int l = 0;
+//        int r = arr.length-1;
 //        int [] ans = RecArray.swapArray( arr, l, r);
 //        System.out.println(Arrays.toString(ans));
+//
+//        int [] fin = RecArray.singleParameter( arr, l);
+//        System.out.println(Arrays.toString(fin));
 
-        int [] fin = RecArray.singleParameter( arr, l);
-        System.out.println(Arrays.toString(fin));
+        char[] s = "madam".toCharArray();
+        int i = 0;
+        System.out.println(RecPalindrome.isPalindrome(s,i));
+
 
     }
 }
