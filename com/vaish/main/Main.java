@@ -79,10 +79,12 @@ public class Main {
 //        int [] fin = RecArray.singleParameter( arr, l);
 //        System.out.println(Arrays.toString(fin));
 
-        char[] s = "madam".toCharArray();
-        int i = 0;
-        System.out.println(RecPalindrome.isPalindrome(s,i));
+//        char[] s = "madam".toCharArray();
+//        int i = 0;
+//        System.out.println(RecPalindrome.isPalindrome(s,i));
 
+        int n = 5;
+        System.out.println(RecFib.recFibonacci(n));
 
     }
 }
