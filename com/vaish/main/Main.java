@@ -2,6 +2,7 @@ package com.vaish.main;
 
 import com.vaish.concepts.recursion.*;
 import com.vaish.practice.*;
+import com.vaish.practice.geeksforgeeks.HashingFrequencies;
 
 import java.util.Arrays;
 
@@ -83,8 +84,12 @@ public class Main {
 //        int i = 0;
 //        System.out.println(RecPalindrome.isPalindrome(s,i));
 
-        int n = 5;
-        System.out.println(RecFib.recFibonacci(n));
+//        int n = 8;
+//        int x = 1;
+//        System.out.println(RecFib.recFibonacci(n));
+//        System.out.println(recPowerTwo.isPowerTwo(n, x));
+        int[] arr = {2, 3, 2, 3, 5};
+        HashingFrequencies.frequencyCount(arr);
 
     }
 }
