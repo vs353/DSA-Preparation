@@ -3,6 +3,7 @@ package com.vaish.main;
 import com.vaish.concepts.recursion.*;
 import com.vaish.practice.*;
 import com.vaish.practice.geeksforgeeks.HashingFrequencies;
+import com.vaish.practice.leetcode.hashing.EqualPairs_2206;
 
 import java.util.Arrays;
 
@@ -88,8 +89,12 @@ public class Main {
 //        int x = 1;
 //        System.out.println(RecFib.recFibonacci(n));
 //        System.out.println(recPowerTwo.isPowerTwo(n, x));
-        int[] arr = {2, 3, 2, 3, 5};
-        HashingFrequencies.frequencyCount(arr);
+        int[] arr = {499,500};
+//        HashingFrequencies.frequencyCount(arr);
+        boolean an = EqualPairs_2206.divideArray(arr);
+        System.out.println(an);
+
+
 
     }
 }
