@@ -4,6 +4,7 @@ import com.vaish.concepts.recursion.*;
 import com.vaish.practice.*;
 import com.vaish.practice.geeksforgeeks.HashingFrequencies;
 import com.vaish.practice.leetcode.hashing.EqualPairs_2206;
+import com.vaish.practice.leetcode.hashing.FrequentElement_1838;
 
 import java.util.Arrays;
 
@@ -89,11 +90,15 @@ public class Main {
 //        int x = 1;
 //        System.out.println(RecFib.recFibonacci(n));
 //        System.out.println(recPowerTwo.isPowerTwo(n, x));
-        int[] arr = {499,500};
+//        int[] arr = {499,500};
 //        HashingFrequencies.frequencyCount(arr);
-        boolean an = EqualPairs_2206.divideArray(arr);
-        System.out.println(an);
+//        boolean an = EqualPairs_2206.divideArray(arr);
+//        System.out.println(an);
+        int[] nums = {3,9,6};
+        int k = 2;
 
+        int count = FrequentElement_1838.maxFrequency(nums,k);
+        System.out.println(count);
 
 
     }
