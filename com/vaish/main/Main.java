@@ -1,27 +1,6 @@
 package com.vaish.main;
 
-import com.vaish.concepts.digits.CountDigits;
-import com.vaish.concepts.recursion.*;
-import com.vaish.practice.*;
-import com.vaish.practice.geeksforgeeks.CountDigit;
-import com.vaish.practice.geeksforgeeks.HashingFrequencies;
-import com.vaish.practice.geeksforgeeks.Largest_Element_in_Array;
 import com.vaish.practice.leetcode.array.CheckArrayIsSorted_1752;
-import com.vaish.practice.leetcode.array.RemoveDuplicates_26;
-import com.vaish.practice.leetcode.digits.ReverseInteger_7;
-import com.vaish.practice.leetcode.hashing.EqualPairs_2206;
-import com.vaish.practice.leetcode.hashing.FirstUniqueChar_387;
-import com.vaish.practice.leetcode.hashing.FrequentElement_1838;
-import com.vaish.practice.leetcode.bitmanipulation.LongestNiceSubarray_2401;
-import com.vaish.practice.leetcode.bitmanipulation.AddBinary_67;
-import com.vaish.practice.geeksforgeeks.Second_Largest;
-
-import java.util.Arrays;
-
-import static com.vaish.concepts.recursion.Recursion.f;
-import static com.vaish.practice.IisHappy.isHappy;
-import static com.vaish.practice.IsPrime.isPrimeNumber;
-import static com.vaish.practice.MySqrt.mySqrt;
 //import static com.vaish.practice.MySqrt.mySqrt;
 
 
@@ -126,13 +105,13 @@ public class Main {
 //        int x = 1534236469;
 //        int ans = ReverseInteger_7.reverse(x);
 //        System.out.println(ans);
-       int[] arr={1,1,2};
+       int[] arr={2,1,3,4};
 //       int ans = Second_Largest.getSecondLargest(arr);
 //       int ans =  Largest_Element_in_Array.largest(arr);
 //        System.out.println(ans);
 //        boolean check = CheckArrayIsSorted_1752.check(arr);
 //        System.out.println(check);
-        int removeDuplicates = RemoveDuplicates_26.removeDuplicates(arr);
-        System.out.println(removeDuplicates);
+//        int removeDuplicates = RemoveDuplicates_26.removeDuplicates(arr);
+//        System.out.println(removeDuplicates);
     }
 }
