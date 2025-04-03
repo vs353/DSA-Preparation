@@ -7,8 +7,9 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int [] arr = {0};
-        int ans = LC_MissingNumber.missingNumber(arr);
+        int [] arr = {1,0,1,1,0,1};
+        int ans = LC_MaxConsecutiveOnes_485.findMaxConsecutiveOnes(arr);
+//        int ans = LC_MissingNumber.missingNumber(arr);
         System.out.println(ans);
 //        int d = 2;
 //        boolean ch = LC_CheckArrayIsSorted_1752.check(arr);
