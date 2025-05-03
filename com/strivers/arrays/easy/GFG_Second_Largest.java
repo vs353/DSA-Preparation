@@ -1,7 +1,7 @@
-package com.vaish.practice.geeksforgeeks;
+package com.strivers.arrays.easy;
 
-public class Second_Largest {
-    public static int getSecondLargest(int[] arr) {
+public class GFG_Second_Largest {
+    public int getSecondLargest(int[] arr) {
         int firstLargest = arr[0];
         int secondLargest = -1;
         for(int i : arr){

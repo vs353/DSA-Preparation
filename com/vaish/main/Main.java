@@ -1,6 +1,7 @@
 package com.vaish.main;
 
 import com.vaish.practice.leetcode.array.CheckArrayIsSorted_1752;
+import com.vaish.practice.leetcode.hashing.LC_ArrayDistinct_3396;
 //import static com.vaish.practice.MySqrt.mySqrt;
 
 
@@ -105,7 +106,8 @@ public class Main {
 //        int x = 1534236469;
 //        int ans = ReverseInteger_7.reverse(x);
 //        System.out.println(ans);
-       int[] arr={2,1,3,4};
+       int[] arr={1,2,3,4,2,3,3,5,7};
+//       int ans = LC_ArrayDistinct_3396.minimumOperations(arr);
 //       int ans = Second_Largest.getSecondLargest(arr);
 //       int ans =  Largest_Element_in_Array.largest(arr);
 //        System.out.println(ans);

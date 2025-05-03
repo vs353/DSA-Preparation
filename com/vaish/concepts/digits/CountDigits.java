@@ -3,7 +3,7 @@ package com.vaish.concepts.digits;
 import static java.lang.Math.log10;
 
 public class CountDigits {
-   // int n = 7789;
+    int n = 39;
     public static int countDigits(int n){
         int count= 0;
    //  while(n>0){
