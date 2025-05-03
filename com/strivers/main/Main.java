@@ -7,11 +7,23 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int [] arr = {2,2,1};
-      int ans =  LC_SingleNumber_136.singleNumber(arr);
+        int x = -121;
+        int[] arr = {1,2,3,4,5};
+        int n = 5;
+//        solution.reverse(arr,n);
+//        String s = "hanzsnah";
+//        boolean ans = solution.palindromeCheck(s);
+//        System.out.println(ans);
+//        String s =  "A man, a plan, a canal: Panama";
+//        boolean ans = solution.isPalindrome(s);
+//        boolean ans = solution.isPalindrome(x);
+        //        int [] arr = {2,3,5,1,9};
+//        int k = 10;
+//        int ans = GFG_LongestSubarraySumK.longestSubarray(arr, k);
+//      int ans =  LC_SingleNumber_136.singleNumber(arr);
 //        int ans = LC_MaxConsecutiveOnes_485.findMaxConsecutiveOnes(arr);
 //        int ans = LC_MissingNumber.missingNumber(arr);
-        System.out.println(ans);
+//        System.out.println(ans);
 //        int d = 2;
 //        boolean ch = LC_CheckArrayIsSorted_1752.check(arr);
 //        System.out.println(ch);
