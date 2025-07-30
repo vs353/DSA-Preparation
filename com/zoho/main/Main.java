@@ -1,5 +1,6 @@
 package com.zoho.main;
 
+import com.strivers.arrays.easy.solution;
 import com.strivers.linkedlist.LengthOfLinkedList;
 import com.strivers.linkedlist.Node;
 import com.zoho.problems.*;
@@ -8,8 +9,10 @@ public class Main {
     public static void main(String[] args) {
         int n = 5;
         int N = 43;
-        int[] nums = {1,2,3,3,4,4,1,2,5,6,7};
+        int[] nums = {1,2,3,4};
         int[] arr = {1, 2, 0, 4, 3, 0, 5, 0};
+       int[] ans=  solution.productExceptSelf(nums);
+        System.out.println(ans);
 //LL
         Node n1 = new Node(1);
         Node n2 = new Node(2);
@@ -32,7 +35,8 @@ public class Main {
 //        LengthOfLinkedList ll = new LengthOfLinkedList();
 //        ll.lengthOfLL();
 
-        LengthOfLinkedList.lengthOfLL(n1);
+//        LengthOfLinkedList.lengthOfLL(n1);
         // Single LinkedList
+//        LengthOfLinkedList.reverseList(n1);
     }
 }

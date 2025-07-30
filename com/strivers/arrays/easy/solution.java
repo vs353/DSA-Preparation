@@ -3,6 +3,16 @@ package com.strivers.arrays.easy;
 import java.util.Arrays;
 
 public class solution {
+    public static int[] productExceptSelf(int[] nums) {
+        int t =0;
+        int n = nums.length;
+        int[] arr = new int[n];
+        for(int i = nums[t]+1 ; i<=n ; i++){
+            arr[i] = i* nums[i]+1;
+        }
+        return arr;
+    }
+
     public static boolean isPalindrome(int x) {
         int rev = x;
         int ld= 0;

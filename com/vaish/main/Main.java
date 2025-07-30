@@ -1,7 +1,10 @@
 package com.vaish.main;
 
+import com.vaish.practice.leetcode.*;
 import com.vaish.practice.leetcode.array.CheckArrayIsSorted_1752;
 import com.vaish.practice.leetcode.hashing.LC_ArrayDistinct_3396;
+
+import java.util.Arrays;
 //import static com.vaish.practice.MySqrt.mySqrt;
 
 
@@ -115,5 +118,39 @@ public class Main {
 //        System.out.println(check);
 //        int removeDuplicates = RemoveDuplicates_26.removeDuplicates(arr);
 //        System.out.println(removeDuplicates);
+//        String s = "Hello World";
+//        int answer=  Task_58.lengthOfLastWord(s);
+//        System.out.println(answer);
+       int[] nums = {2,1,3,4};
+       int target = 8;
+        int val = 3;
+
+//        int[] removedElement = new int[]{Task_27.removeElement(nums, val)};
+//        System.out.println(Arrays.toString(removedElement));
+//        String s = "abcd";
+//     int ans =    Task_3330.possibleStringCount(s);
+
+//    Task_283.moveZeroes(nums);
+//        System.out.println(ans);
+        int n = 10;
+//       boolean an=  Task_263.isUgly(n);
+        String [] str = {"flower","flow","flight"};
+//        String an = Task_263.longestCommonPrefix(str);
+//                Task_263.searchInsert(nums, target);
+//        boolean an = Task_1752.check(nums);
+//        String s = "(]";
+        String s = "A man, a plan, a canal: Panama";
+//        boolean an = Task_20.isValid(s);
+        boolean an = Task_20.isPalindrome(s);
+        System.out.println(an);
+
     }
+    public static class ListNode {
+      int val;
+      ListNode next;
+      ListNode() {}
+      ListNode(int val) { this.val = val; }
+      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+  }
+
 }
