@@ -5,6 +5,7 @@ import com.vaish.practice.leetcode.array.CheckArrayIsSorted_1752;
 import com.vaish.practice.leetcode.hashing.LC_ArrayDistinct_3396;
 
 import java.util.Arrays;
+import java.util.List;
 //import static com.vaish.practice.MySqrt.mySqrt;
 
 
@@ -139,10 +140,20 @@ public class Main {
 //                Task_263.searchInsert(nums, target);
 //        boolean an = Task_1752.check(nums);
 //        String s = "(]";
-        String s = "A man, a plan, a canal: Panama";
+//        String s = "A man, a plan, a canal: Panama";
 //        boolean an = Task_20.isValid(s);
-        boolean an = Task_20.isPalindrome(s);
-        System.out.println(an);
+//        boolean an = Task_20.isPalindrome(s);
+//        System.out.println(an);
+        String s = "I lOve leetcode";
+        int[] nums1= {1,2,2,1};
+        int[] nums2 ={2,2};
+//        String ans = Task_2129.capitalizeTitle(s);
+//        System.out.println(ans);
+//    int[] ans =     Task_349.intersection(nums1, nums2);
+//    System.out.println(Arrays.toString(ans));
+
+        int[] ans =     Task_349.intersect(nums1, nums2);
+        System.out.println(Arrays.toString(ans));
 
     }
     public static class ListNode {
