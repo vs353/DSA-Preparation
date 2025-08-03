@@ -122,7 +122,7 @@ public class Main {
 //        String s = "Hello World";
 //        int answer=  Task_58.lengthOfLastWord(s);
 //        System.out.println(answer);
-       int[] nums = {2,1,3,4};
+//       int[] nums = {2,1,3,4};
        int target = 8;
         int val = 3;
 
@@ -154,6 +154,10 @@ public class Main {
 
         int[] ans =     Task_349.intersect(nums1, nums2);
         System.out.println(Arrays.toString(ans));
+
+        int[] nums = {1,7,3,6,5,6};
+        int a = Task_724.pivotIndex(nums);
+        System.out.println(a);
 
     }
     public static class ListNode {
