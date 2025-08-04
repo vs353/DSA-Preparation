@@ -151,13 +151,17 @@ public class Main {
 //        System.out.println(ans);
 //    int[] ans =     Task_349.intersection(nums1, nums2);
 //    System.out.println(Arrays.toString(ans));
+//
+//        int[] ans =     Task_349.intersect(nums1, nums2);
+//        System.out.println(Arrays.toString(ans));
 
-        int[] ans =     Task_349.intersect(nums1, nums2);
-        System.out.println(Arrays.toString(ans));
+//        int[] nums = {2,1,-1};
+//        int a = Task_724.pivotIndex(nums);
+//        System.out.println(a);
 
-        int[] nums = {2,1,-1};
-        int a = Task_724.pivotIndex(nums);
-        System.out.println(a);
+        String[] words = {"Hello","Alaska","Dad","Peace"};
+        String[] s1 = Task_724.findWords(words);
+        System.out.println(Arrays.toString(s1));
 
     }
     public static class ListNode {

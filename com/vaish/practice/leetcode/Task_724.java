@@ -1,6 +1,8 @@
 package com.vaish.practice.leetcode;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Task_724 {
     public static int pivotIndex(int[] num1) {
@@ -19,6 +21,30 @@ public class Task_724 {
         }
 
         return -1;
+    }
+
+    public  static String[] findWords(String[] words) {
+        String r1 = "qwertyuiop";
+        String r2 = "asdfghjkl";
+        String r3 = "zxcvbnm";
+        List<String> list = new ArrayList<>();
+        for(String word : words){
+            String lower = word.toLowerCase();
+            if(inRow(lower , r1) || inRow(lower, r2) || inRow(lower, r3)){
+                list.add(word);
+            }
+        }
+        String[] ss = list.toArray(new String[0]);
+
+        return ss;
+    }
+    private static  boolean inRow(String word , String row){
+        for(char ch : word.toCharArray()){
+            if(row.indexOf(ch) ==-1){
+                return false;
+            }
+        }
+        return true;
     }
 
     public static int heightChecker(int[] heights) {
