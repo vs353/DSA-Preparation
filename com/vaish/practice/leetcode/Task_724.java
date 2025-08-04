@@ -1,5 +1,7 @@
 package com.vaish.practice.leetcode;
 
+import java.util.Arrays;
+
 public class Task_724 {
     public static int pivotIndex(int[] num1) {
         int totalSum = 0;
@@ -19,7 +21,15 @@ public class Task_724 {
         return -1;
     }
 
-    public static int primeNumbers(){
-        return 0;
+    public static int heightChecker(int[] heights) {
+        int[] newList = Arrays.copyOf(heights, heights.length);
+        Arrays.sort(newList);
+        int count =0;
+        for(int i =0; i<heights.length; i++){
+            if(heights[i] != newList[i]){
+                count ++;
+            }
+        }
+        return count;
     }
 }

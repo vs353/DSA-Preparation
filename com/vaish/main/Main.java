@@ -155,7 +155,7 @@ public class Main {
         int[] ans =     Task_349.intersect(nums1, nums2);
         System.out.println(Arrays.toString(ans));
 
-        int[] nums = {1,7,3,6,5,6};
+        int[] nums = {2,1,-1};
         int a = Task_724.pivotIndex(nums);
         System.out.println(a);
 
