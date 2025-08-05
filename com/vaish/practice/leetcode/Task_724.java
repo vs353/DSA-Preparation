@@ -47,6 +47,26 @@ public class Task_724 {
         return true;
     }
 
+    public static int dominantIndex(int[] nums) {
+        int max = 0;
+        int index = 0;
+        int[] n1= Arrays.copyOf(nums, nums.length);
+        Arrays.sort(n1);
+        int min = n1[nums.length-2];
+        System.out.println(min);
+        for(int i =0; i<nums.length; i++){
+            if(max<nums[i]){
+                max = nums[i];
+                index = i;
+            }
+        }
+        if(max>=2*min){
+            return index;
+        }
+
+        return -1;
+    }
+
     public static int heightChecker(int[] heights) {
         int[] newList = Arrays.copyOf(heights, heights.length);
         Arrays.sort(newList);

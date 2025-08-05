@@ -159,9 +159,19 @@ public class Main {
 //        int a = Task_724.pivotIndex(nums);
 //        System.out.println(a);
 
+        int [] nums = {0,0,3,2};
+
+        int [] fruits= {4,2,5};
+        int [] baskets ={1,1,1};
+        int fb = Task_3477.numOfUnplacedFruits(fruits, baskets);
+        System.out.println(fb);
+
+//        int a = Task_724.dominantIndex(nums);
+//        System.out.println(a);
+
         String[] words = {"Hello","Alaska","Dad","Peace"};
-        String[] s1 = Task_724.findWords(words);
-        System.out.println(Arrays.toString(s1));
+//        String[] s1 = Task_724.findWords(words);
+//        System.out.println(Arrays.toString(s1));
 
     }
     public static class ListNode {
