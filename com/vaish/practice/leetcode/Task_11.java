@@ -5,6 +5,51 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Task_11 {
+
+    public static int[] searchRange(int[] nums, int target) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i<nums.length; i++){
+            if(target == nums[i] ){
+                list.add(i);
+            }
+        }
+        if(list.isEmpty()){
+            list.add(-1);
+            list.add(-1);
+        }
+//        int i = 0;
+//        if(list.size() ==1){
+//            if(list.contains()){
+//                list.add(list.get(i));
+//            }
+//            else if ( (list.contains(0))) {
+//                list.add(0);
+//            }
+
+//        }
+//        int[] arr = new int[2];
+//        for(int j = 0; j< list.size(); j++){
+//            if(list.size()>2){
+//                int s = list.get(j);
+//                int e = list.get(list.size()-1);
+//                arr[j] = s;
+//                arr[j] = e;
+//            }
+//            else {
+//                arr[j] = list.get(j);
+//            }
+        int[] arr = new int[2];
+        if (list.size() >= 2) {
+            arr[0] = list.get(0);                  // first value
+            arr[1] = list.get(list.size() - 1);    // last value
+        } else if (list.size() == 1) {
+            arr[0] = list.get(0);
+            arr[1] = list.get(0); // or 0 or any default
+
+        }
+        return arr;
+    }
+
     public static int maxArea(int[] height) {
         int range = 0;
         int s= 0;

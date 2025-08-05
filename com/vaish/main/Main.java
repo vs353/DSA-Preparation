@@ -123,8 +123,8 @@ public class Main {
 //        int answer=  Task_58.lengthOfLastWord(s);
 //        System.out.println(answer);
 //       int[] nums = {2,1,3,4};
-       int target = 8;
-        int val = 3;
+//       int target = 8;
+//        int val = 3;
 
 //        int[] removedElement = new int[]{Task_27.removeElement(nums, val)};
 //        System.out.println(Arrays.toString(removedElement));
@@ -159,15 +159,15 @@ public class Main {
 //        int a = Task_724.pivotIndex(nums);
 //        System.out.println(a);
 
-        int [] nums = {0,0,3,2};
+//        int [] nums = {0,0,3,2};
 
         int [] fruits= {4,2,5};
         int [] baskets ={1,1,1};
 //        int fb = Task_3477.numOfUnplacedFruits(fruits, baskets);
 //        System.out.println(fb);
         int[] height = {1,2,4,3};
-        int ans = Task_11.maxArea(height);
-        System.out.println(ans);
+//        int ans = Task_11.maxArea(height);
+//        System.out.println(ans);
 
 //        int a = Task_724.dominantIndex(nums);
 //        System.out.println(a);
@@ -175,6 +175,13 @@ public class Main {
         String[] words = {"Hello","Alaska","Dad","Peace"};
 //        String[] s1 = Task_724.findWords(words);
 //        System.out.println(Arrays.toString(s1));
+
+        int[] nums = {1,3};
+        int target = 1;
+
+        int[] ars = Task_11.searchRange(nums, target);
+        System.out.println(Arrays.toString(ars));
+
 
     }
     public static class ListNode {
