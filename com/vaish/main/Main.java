@@ -163,8 +163,11 @@ public class Main {
 
         int [] fruits= {4,2,5};
         int [] baskets ={1,1,1};
-        int fb = Task_3477.numOfUnplacedFruits(fruits, baskets);
-        System.out.println(fb);
+//        int fb = Task_3477.numOfUnplacedFruits(fruits, baskets);
+//        System.out.println(fb);
+        int[] height = {1,2,4,3};
+        int ans = Task_11.maxArea(height);
+        System.out.println(ans);
 
 //        int a = Task_724.dominantIndex(nums);
 //        System.out.println(a);
