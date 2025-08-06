@@ -185,13 +185,17 @@ int [][] matrix = {{1,1,0},{1,0,1},{0,0,0}};
 int r = 1;
 int c =4;
 //        Task_48.rotate(matrix);
-        int[][] mat = Task_48.flipAndInvertImage(matrix);
+//        int[][] mat = Task_48.flipAndInvertImage(matrix);
 
 //                Task_48.matrixReshape(matrix,r,c);
 
 //                Task_48.transpose(matrix);
-        System.out.println(Arrays.deepToString(mat));
-
+//        System.out.println(Arrays.deepToString(mat));
+int[][] mat = {{6,3,1,10,7,4},{4,10,1,9,5,10},{5,5,7,3,8,5},{2,7,6,4,7,6},{7,9,6,1,8,5},{1,7,9,5,8,4}};
+        //{{1,1,1,1}, {1,1,1,1}, {1,1,1,1}, {1,1,1,1}};
+        //{{1,2,3},{4,5,6},{7,8,9}};
+        int m = Task_1572.diagonalSum(mat);
+        System.out.println(m);
     }
     public static class ListNode {
       int val;
