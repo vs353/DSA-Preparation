@@ -1,5 +1,28 @@
 package com.vaish.practice.leetcode;
 public class Task_48 {
+    public static int[][] matrixReshape(int[][] mat, int r, int c) {
+        int n = mat.length;
+        int m = mat[0].length;
+        if(n*m != r*c){
+            return mat;
+        }
+        int [][] res = new int[r][c];
+        int row =0;
+        int col =0;
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m ; j++){
+                res[row][col] = mat[i][j];
+                col++;
+                if(col == c){
+                    col=0;
+                    row++;
+                }
+            }
+        }
+        return res;
+    }
+
+
     public static int[][] transpose(int[][] matrix) {
         int n = matrix.length;
         int m = matrix[0].length;
