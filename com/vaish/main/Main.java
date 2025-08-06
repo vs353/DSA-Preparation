@@ -181,11 +181,13 @@ public class Main {
 
 //        int[] ars = Task_11.searchRange(nums, target);
 //        System.out.println(Arrays.toString(ars));
-int [][] matrix = {{10,20},{30,40}};
-int r = 4;
-int c =1;
+int [][] matrix = {{1,1,0},{1,0,1},{0,0,0}};
+int r = 1;
+int c =4;
 //        Task_48.rotate(matrix);
-        int[][] mat = Task_48.matrixReshape(matrix,r,c);
+        int[][] mat = Task_48.flipAndInvertImage(matrix);
+
+//                Task_48.matrixReshape(matrix,r,c);
 
 //                Task_48.transpose(matrix);
         System.out.println(Arrays.deepToString(mat));
