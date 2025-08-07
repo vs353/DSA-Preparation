@@ -10,9 +10,11 @@ public class Main {
         int x = -121;
         int[] arr = {1,2,3,4,5};
         int n = 5;
-        int[] nums= {0, 0, 3, 3, 5, 6};
-       int ans = removeDuplicates.removeDuplicates(nums);
-        System.out.println(ans);
+        int[] nums= {1, 2, 3, 4, 5, 6};
+        int k = 2;
+        removeDuplicates.rotateArray(nums, k);
+//         int ans =      removeDuplicates.removeDuplicates(nums);
+//        System.out.println(ans);
 //        solution.reverse(arr,n);
 //        String s = "hanzsnah";
 //        boolean ans = solution.palindromeCheck(s);
