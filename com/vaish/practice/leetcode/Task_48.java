@@ -1,5 +1,31 @@
 package com.vaish.practice.leetcode;
 public class Task_48 {
+
+    public static int secondLargestElement(int[] nums) {
+        int first = 0;
+        int second = 0;
+        if(nums[first] > nums[nums.length-1]){
+            for(int i =nums.length-1; i>0; i--){
+                if(first<nums[i]){
+                    second= first;
+                    first =nums[i];
+                }
+            }
+            if(second==0){
+                return -1;
+            }
+        }
+//        else if (nums[first] <= nums[nums.length-1]) {
+//            for(int i = 0; i<nums.length ; i++){
+//                if(first<=nums[i]){
+//                    second =first;
+//                    first= nums[i];
+//                }
+//            }
+//        }
+        return second;
+    }
+
     public static int[][] flipAndInvertImage(int[][] image) {
         int row = image.length;
         int col = image[0].length;

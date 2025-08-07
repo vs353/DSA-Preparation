@@ -195,8 +195,12 @@ int c =4;
 int[][] mat = {{6,3,1,10,7,4},{4,10,1,9,5,10},{5,5,7,3,8,5},{2,7,6,4,7,6},{7,9,6,1,8,5},{1,7,9,5,8,4}};
         //{{1,1,1,1}, {1,1,1,1}, {1,1,1,1}, {1,1,1,1}};
         //{{1,2,3},{4,5,6},{7,8,9}};
-        int m = Task_1572.diagonalSum(mat);
-        System.out.println(m);
+//        int m = Task_1572.diagonalSum(mat);
+//        System.out.println(m);
+
+        int [] n1 ={8, 8, 7, 6, 8};
+        int an = Task_48.secondLargestElement(n1);
+        System.out.println(an);
     }
     public static class ListNode {
       int val;
