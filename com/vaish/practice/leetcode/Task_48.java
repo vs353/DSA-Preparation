@@ -1,28 +1,30 @@
 package com.vaish.practice.leetcode;
+
+import java.util.ArrayList;
+
 public class Task_48 {
+
+    public boolean isSorted(ArrayList<Integer> nums) {
+        for(int i =1; i<nums.size() ; i++){
+            if(nums.get(i) < nums.get(i-1)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static int secondLargestElement(int[] nums) {
         int first = 0;
-        int second = 0;
-        if(nums[first] > nums[nums.length-1]){
-            for(int i =nums.length-1; i>0; i--){
-                if(first<nums[i]){
-                    second= first;
-                    first =nums[i];
+        int second = -1;
+        for(int i = 0;i <nums.length; i++){
+            if(first < nums[i]){
+                first = nums[i];
+            } if(first != nums[i]){
+                 if (second<nums[i] && !(second>first)) {
+                    second= nums[i];
                 }
             }
-            if(second==0){
-                return -1;
-            }
         }
-//        else if (nums[first] <= nums[nums.length-1]) {
-//            for(int i = 0; i<nums.length ; i++){
-//                if(first<=nums[i]){
-//                    second =first;
-//                    first= nums[i];
-//                }
-//            }
-//        }
         return second;
     }
 

@@ -198,7 +198,7 @@ int[][] mat = {{6,3,1,10,7,4},{4,10,1,9,5,10},{5,5,7,3,8,5},{2,7,6,4,7,6},{7,9,6
 //        int m = Task_1572.diagonalSum(mat);
 //        System.out.println(m);
 
-        int [] n1 ={8, 8, 7, 6, 8};
+        int [] n1 ={10,10,10,10,10};
         int an = Task_48.secondLargestElement(n1);
         System.out.println(an);
     }
