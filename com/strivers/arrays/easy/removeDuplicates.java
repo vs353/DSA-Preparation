@@ -3,6 +3,82 @@ package com.strivers.arrays.easy;
 import java.util.Arrays;
 
 public class removeDuplicates {
+    private static void reverse(int[] nums,int s, int e) {
+//        if(s==e){
+//        }
+//        else {
+            while(s<=e){
+                int temp = nums[s];
+                nums[s] = nums[e];
+                nums[e] = temp;
+                s++;
+                e--;
+            }
+//        }
+    }
+    public static void rotateRight(int[] nums, int k) {
+        int n = nums.length;
+        int d = k%n;
+        if(d !=0){
+            if(nums.length%2!=0){
+//                if(d==1){
+//                    if(n>3){
+//                        reverse(nums, 0, d);
+//                    }
+//                    reverse (nums, 0, n-1);
+//                }
+//                else{
+                    reverse(nums, n-d, n-1);
+//                    if(n>3){
+                if(n-1!=d){
+                    if(k>n){
+                        reverse(nums, 0,n-(d+1));
+                    }
+                    else {
+                        if(n-d > d){
+                            reverse(nums, 0,n-(d+1));
+                        }
+                        else{
+                            if(k==d){
+                                reverse(nums,0,n-(d+1) );
+                            }
+                            else {
+                                reverse(nums, 0, d);
+                            }
+                        }
+                    }
+
+                }
+//                    }
+                    reverse (nums, 0, n-1);
+//                }
+            }
+            else {
+                 n = n-1;
+//                reverse(nums, d, n);
+//                reverse(nums, 0, n-d);
+//                reverse (nums, 0, n);
+                reverse(nums, n-(d-1), n);
+                if(n!=d){
+                    reverse(nums, 0, n-d);
+                }
+                reverse (nums, 0, n);
+            }
+        }
+        System.out.println(Arrays.toString(nums));
+    }
+
+    public static void rotate(int[] nums, int k) {
+        int n = nums.length-1;
+        int d = k%n;
+        reverse(nums, 0,d-1);
+        reverse(nums,d, n);
+        reverse(nums,0,n);
+        System.out.println(Arrays.toString(nums));
+    }
+
+
+
     public static int removeDuplicates(int[] nums) {
             int i =0;
             for(int j =1; j<nums.length; j++){
@@ -13,7 +89,6 @@ public class removeDuplicates {
             }
         return i+1;
     }
-
     public static  void rotateArray(int[] nums, int k) {
         int n = nums.length;
         int d = k%n;
