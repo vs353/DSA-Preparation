@@ -8,14 +8,18 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         int x = -121;
-        int[] arr = {1,2,3,4,5};
+//        int[] arr = {1,2,3,4,5};
         int n = 5;
 //        int[] nums= {0,1,0,3,12};
-        int [] nums1 = {1, 2, 3, 4, 5};
-        int [] nums2 = {1, 2, 7};
+        int [] nums1 = {10, 2, 6, 3};
+        int [] nums2 = {2 ,10 ,10, 8};
         int k = 15;
-      int[] union =  ZerosLast.unionArray(nums1 ,nums2);
-        System.out.println(Arrays.toString(union));
+        int[] arr = {1,2,3};
+        ZerosLast.duplicateZeros(arr);
+//      ArrayList<Integer> union = ZerosLast.findUnion(nums1, nums2);
+//      System.out.println(union);
+//              ZerosLast.unionArray(nums1 ,nums2);
+//        System.out.println(Arrays.toString(union));
 //        ZerosLast.moveZeroes(nums);
 //        removeDuplicates.rotateRight(nums, k);
 //                rotate(nums, k);

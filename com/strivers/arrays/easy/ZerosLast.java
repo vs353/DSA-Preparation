@@ -4,6 +4,72 @@ import java.util.*;
 
 public class ZerosLast {
 
+    public static void duplicateZeros(int[] arr) {
+        int s = 0;
+        List<Integer> list = new ArrayList<>();
+        while(s< arr.length){
+            if(arr[s]==0){
+                list.add(arr[s]);
+                list.add(0);
+                s++;
+            }
+            else {
+                list.add(arr[s]);
+                s++;
+            }
+        }
+       for(int i =0; i<=arr.length-1; i++){
+           arr[i] = list.get(i);
+       }
+        System.out.println(Arrays.toString(arr));
+    }
+    public static ArrayList<Integer> findUnion(int[] a, int[] b) {
+      ArrayList<Integer> list = new ArrayList<>();
+        Arrays.sort(a);
+        Arrays.sort(b);
+      int i =0;
+      int j = 0;
+      int temp =-1;
+
+      while (i<a.length && j<b.length){
+          if(a[i]<=b[j] && a[i]>temp){
+              list.add(a[i]);
+              temp = a[i];
+              i++;
+          }
+          else if(b[j]>temp) {
+              list.add(b[j]);
+              temp = b[j];
+              j++;
+          }
+          else {
+              if (a[i] > temp) {
+                  list.add(a[i]);
+                  temp = a[i];
+              }
+              i++;
+              j++;
+          }
+      }
+        while (i < a.length) {
+            if (a[i] > temp) {
+                list.add(a[i]);
+                temp = a[i];
+            }
+            i++;
+        }
+
+        // Add remaining elements from b
+        while (j < b.length) {
+            if (b[j] > temp) {
+                list.add(b[j]);
+                temp = b[j];
+            }
+            j++;
+        }
+
+       return list;
+    }
     public static int[] unionArray(int[] nums1, int[] nums2) {
         Set<Integer> union = new HashSet<>();
         for(int i = 0; i<nums1.length ; i++){
