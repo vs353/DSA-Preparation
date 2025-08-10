@@ -3,7 +3,111 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static boolean isSubsequence(String s, String t) {
+        int count =0;
+        int n = s.length();
+        int i = 0, j = 0;
+        while (i < s.length() && j < t.length()) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+                count++;
+            }
+            j++;
+        }
+if(count==s.length()){
+    return true;
+}
+//        if (i == s.length()) {
+//            System.out.println("Yes, 'abc' is a subsequence of 'ahbgdc'");
+//        } else {
+//            System.out.println("No");
+//        }
 
+//        List<String> ss = new ArrayList<>();
+//        for (int i =0 ; i<s.length(); i++){
+//            ss.add(String.valueOf(s[i]));
+//        }
+//        List<String> tt = new ArrayList<>();
+//        for(int i =0; i<t.length(); i++){
+//            tt.add(String.valueOf(i));
+//        }
+//        System.out.println(ss);
+//        System.out.println(tt);
+//        if(count == n){
+//            return true;
+//        }
+        return false;
+    }
+    public static int singleNumber(int[] nums) {
+        int count =0;
+        for(int i =0; i<nums.length; i++){
+            int num = nums[i];
+            for(int j =0; j<nums.length ; j++){
+                if(num == nums[j]){
+                    count++;
+                }
+            }
+            if(count ==1){
+                return num;
+            }
+            else{
+                count =0;
+            }
+        }
+        return 0;
+    }
+    public static String[] findRelativeRanks(int[] score) {
+        ArrayList<String> list = new ArrayList<>();
+        int [] copy = score.clone();
+        if(score.length==1){
+            list.add("Gold Medal");
+        }
+        else {
+            Arrays.sort(score);
+            int gm = score[score.length-1];
+            int sm = score[score.length-2];
+            int bm = score[score.length-3];
+            for(int i = 0; i<score.length; i++){
+                if(score[i] == gm){
+                    list.add("Gold Medal");
+                }
+                else if(score[i] ==sm){
+                    list.add("Silver Medal");
+                }
+                else if(score[i] ==bm){
+                    list.add("Bronze Medal");
+                }
+            }
+            System.out.println(list);
+            int i =0;
+            for(String ss : list){
+                if(gm == copy[i]){
+                    copy[i] = Integer.parseInt(list.get(2));
+                }
+                else if (sm == copy[i]){
+                    copy[i] = Integer.parseInt(list.get(1));
+                } else if (bm == copy[i]) {
+                    copy[i] = Integer.parseInt(list.get(0));
+                }
+            }
+//            for(int i =0; i<copy.length;i++){
+//                if(gm == copy[i]){
+//                    copy[i] = Integer.parseInt(list.get(2));
+//                }
+//                else if (sm == copy[i]){
+//                    copy[i] = Integer.parseInt(list.get(1));
+//                } else if (bm == copy[i]) {
+//                    copy[i] = Integer.parseInt(list.get(0));
+//                }
+//            }
+        }
+
+        String[] s = new String[copy.length];
+        for(int i =0; i<copy.length; i++){
+            s[i] = String.valueOf(copy[i]);
+        }
+        return s;
+    }
     public static void duplicateZeros(int[] arr) {
         int s = 0;
         List<Integer> list = new ArrayList<>();
