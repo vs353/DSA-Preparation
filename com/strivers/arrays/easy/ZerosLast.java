@@ -3,6 +3,62 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static boolean wordPattern(String pattern, String s) {
+    int i =0;
+    int n =pattern.length();
+    String[] words = s.split(" ");
+    List<String> list = new ArrayList<>();
+        for (String word : words){
+          list.add(word);
+        }
+    while(i <n){
+        if(pattern.charAt(i) == 'a'){
+            if(Objects.equals(list.get(i), "dog")){
+                i++;
+            }
+            else{
+                return false;
+            }
+        }
+      else {
+          if(Objects.equals(list.get(i), "cat")){
+              i++;
+          }
+          else {
+              return false;
+          }
+        }
+    }
+    return true;
+    }
+//    public static boolean isValid(String s) {
+//     List<String> list = new ArrayList<>(0);
+////     int i =0;
+//     for(int i =0; i<s.length(); i++){
+//         list.add(String.valueOf(i));
+//     }
+//     int i =1;
+//     if(s.charAt(i)list.get(i))
+//     return true;
+//    }
+    public static  int numMatchingSubseq(String s, String[] words) {
+        int count =0;
+        for (String word : words) {
+            int i =0;
+            int j =0;
+            for (char letter : word.toCharArray()) {
+                while(j< words.length){
+                    if(s.charAt(i) == word.charAt(j)){
+//                        j++;
+                    }
+                }
+
+                System.out.println(letter);
+            }
+        }
+
+        return count;
+    }
     public static boolean isSubsequence(String s, String t) {
         int count =0;
         int n = s.length();
@@ -14,28 +70,9 @@ public class ZerosLast {
             }
             j++;
         }
-if(count==s.length()){
-    return true;
-}
-//        if (i == s.length()) {
-//            System.out.println("Yes, 'abc' is a subsequence of 'ahbgdc'");
-//        } else {
-//            System.out.println("No");
-//        }
-
-//        List<String> ss = new ArrayList<>();
-//        for (int i =0 ; i<s.length(); i++){
-//            ss.add(String.valueOf(s[i]));
-//        }
-//        List<String> tt = new ArrayList<>();
-//        for(int i =0; i<t.length(); i++){
-//            tt.add(String.valueOf(i));
-//        }
-//        System.out.println(ss);
-//        System.out.println(tt);
-//        if(count == n){
-//            return true;
-//        }
+       if(count==s.length()){
+        return true;
+       }
         return false;
     }
     public static int singleNumber(int[] nums) {

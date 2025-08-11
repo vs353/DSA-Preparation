@@ -11,9 +11,15 @@ public class Main {
 //        int[] arr = {1,2,3,4,5};
         int n = 5;
         int[] nums= {1, 2, 2, 4, 3, 1, 4};
-        String s = "axc";
-        String t = "ahbgdc";
-        boolean b =   ZerosLast.isSubsequence(s, t);
+        String  pattern = "abba";
+        String s = "dog cat cat dog";
+//        String s = "()[]";
+        String[] words = {"a","bb","acd","ace"};
+//        String t = "ahbgdc";
+        boolean b = ZerosLast.wordPattern(pattern , s);
+//                ZerosLast.isValid(s);
+//        int b =   ZerosLast.numMatchingSubseq(s,words);
+//                ZerosLast.isSubsequence(s, t);
         System.out.println(b);
 //        int ans = ZerosLast.singleNumber(nums);
 //        System.out.println(ans);
