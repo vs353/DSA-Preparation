@@ -11,8 +11,8 @@ public class Main {
 //        int[] arr = {1,2,3,4,5};
         int n = 5;
         int[] nums= {1, 2, 2, 4, 3, 1, 4};
-        String  pattern = "abba";
-        String s = "dog cat cat dog";
+        String  pattern = "abc";
+        String s = "dog cat dog";
 //        String s = "()[]";
         String[] words = {"a","bb","acd","ace"};
 //        String t = "ahbgdc";

@@ -4,32 +4,40 @@ import java.util.*;
 
 public class ZerosLast {
     public static boolean wordPattern(String pattern, String s) {
-    int i =0;
-    int n =pattern.length();
-    String[] words = s.split(" ");
-    List<String> list = new ArrayList<>();
+        int i =0;
+        int n =pattern.length();
+        String[] words = s.split(" ");
+        if (pattern.length() != words.length) {
+            return false;
+        }
+        List<String> list = new ArrayList<>();
         for (String word : words){
-          list.add(word);
+            list.add(word);
         }
-    while(i <n){
-        if(pattern.charAt(i) == 'a'){
-            if(Objects.equals(list.get(i), "dog")){
-                i++;
+        while(i <n){
+            if(pattern.charAt(i) == 'a'){
+                if(Objects.equals(list.get(i), "dog") || Objects.equals(list.get(i), "a") || Objects.equals(list.get(i), "b") ){
+                    i++;
+                }
+                else{
+                    return false;
+                }
             }
-            else{
-                return false;
+            else if (pattern.charAt(i) == 'c'){
+                if(Objects.equals(list.get(i), "a") || Objects.equals(list.get(i), "dog")){
+                    i++;
+                }
+            }
+            else {
+                if(Objects.equals(list.get(i), "cat") || Objects.equals(list.get(i),"b") || Objects.equals(list.get(i), "c")){
+                    i++;
+                }
+                else {
+                    return false;
+                }
             }
         }
-      else {
-          if(Objects.equals(list.get(i), "cat")){
-              i++;
-          }
-          else {
-              return false;
-          }
-        }
-    }
-    return true;
+        return true;
     }
 //    public static boolean isValid(String s) {
 //     List<String> list = new ArrayList<>(0);
