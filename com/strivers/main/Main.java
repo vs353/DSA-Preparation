@@ -12,11 +12,12 @@ public class Main {
         int n = 5;
         int[] nums= {1, 2, 2, 4, 3, 1, 4};
         String  pattern = "abc";
-        String s = "dog cat dog";
+        String s = "bdbd";
 //        String s = "()[]";
         String[] words = {"a","bb","acd","ace"};
 //        String t = "ahbgdc";
-        boolean b = ZerosLast.wordPattern(pattern , s);
+        int b = ZerosLast.firstUniqChar(s);
+//        boolean b = ZerosLast.wordPattern(pattern , s);
 //                ZerosLast.isValid(s);
 //        int b =   ZerosLast.numMatchingSubseq(s,words);
 //                ZerosLast.isSubsequence(s, t);

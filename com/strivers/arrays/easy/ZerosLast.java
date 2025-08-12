@@ -3,6 +3,21 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int firstUniqChar(String s) {
+     for(int i =0; i<s.length(); i++){
+         boolean isUn = true;
+         for(int j =0 ; j<s.length(); j++){
+             if(i!=j&& s.charAt(i)== s.charAt(j)){
+                 isUn = false;
+                 break;
+             }
+         }
+         if(isUn){
+             return i;
+         }
+     }
+     return -1;
+    }
     public static boolean wordPattern(String pattern, String s) {
         int i =0;
         int n =pattern.length();
