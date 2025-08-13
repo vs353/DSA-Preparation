@@ -13,10 +13,12 @@ public class Main {
         int[] nums= {1, 2, 2, 4, 3, 1, 4};
         String jewel = "bcd";
         String stones = "cba";
-        int i = ZerosLast.numJewelsInStones(jewel, stones);
+//        int i = ZerosLast.numJewelsInStones(jewel, stones);
+        String s = "Mr Ding";
+        String i = ZerosLast.reverseWords(s);
         System.out.println(i);
         String  pattern = "abc";
-        String s = "bdbd";
+//        String s = "bdbd";
 //        String s = "()[]";
         String[] words = {"a","bb","acd","ace"};
 //        String t = "ahbgdc";

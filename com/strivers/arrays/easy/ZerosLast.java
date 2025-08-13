@@ -3,6 +3,31 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static String reverseWords(String s) {
+        ArrayList<String> list = new ArrayList<>();
+        String[] words = s.split(" ");
+        for (String word : words) {
+         String ss =   fun(word);
+         list.add(ss);
+        }
+        String result = String.join(", ", list);
+        return result;
+    }
+
+    private static String fun(String word) {
+      char[] arr = word.toCharArray();
+      int s= 0; int e = word.length()-1;
+      while(s<e){
+          char t = arr[s];
+          arr[s] = arr[e];
+          arr[e] = t;
+          s++;
+          e--;
+      }
+        String str = String.valueOf(arr);
+      return str;
+    }
+
     public static int numJewelsInStones(String jewels, String stones) {
       int count =0;
       for(int i =0; i<jewels.length(); i++){
