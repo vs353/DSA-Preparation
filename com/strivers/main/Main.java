@@ -14,8 +14,10 @@ public class Main {
         String jewel = "bcd";
         String stones = "cba";
 //        int i = ZerosLast.numJewelsInStones(jewel, stones);
+        String num = "6777133339";
         String s = "Mr Ding";
-        String i = ZerosLast.reverseWords(s);
+        String i = ZerosLast.largestGoodInteger(num);
+//                ZerosLast.reverseWords(s);
         System.out.println(i);
         String  pattern = "abc";
 //        String s = "bdbd";

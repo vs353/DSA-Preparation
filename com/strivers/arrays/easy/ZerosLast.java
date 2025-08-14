@@ -3,6 +3,11 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static String largestGoodInteger(String num) {
+        String str ="";
+
+        return str;
+    }
     public static String reverseWords(String s) {
         ArrayList<String> list = new ArrayList<>();
         String[] words = s.split(" ");
