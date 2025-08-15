@@ -4,13 +4,15 @@ import java.util.*;
 
 public class ZerosLast {
     public static  boolean searchMatrix(int[][] matrix, int target) {
-       for(int i = 0 ; i<matrix.length ; i++){
-           for(int j =0; j<matrix.length; j++){
-               if(matrix[i][j] == target){
-                   return true;
-               }
-           }
-       }
+        int m =matrix.length;
+        int n =matrix[0].length;
+        for(int i = 0; i<m ;i++ ){
+            for(int j =0; j<n; j++){
+                if(matrix[i][j]== target){
+                    return true;
+                }
+            }
+        }
        return false;
     }
     public static String largestGoodInteger(String num) {
