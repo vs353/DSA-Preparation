@@ -3,10 +3,24 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static  boolean searchMatrix(int[][] matrix, int target) {
+       for(int i = 0 ; i<matrix.length ; i++){
+           for(int j =0; j<matrix.length; j++){
+               if(matrix[i][j] == target){
+                   return true;
+               }
+           }
+       }
+       return false;
+    }
     public static String largestGoodInteger(String num) {
-        String str ="";
-
-        return str;
+        String sample = "";
+        for (int i = 0; i + 2 < num.length(); i++) {
+            if (num.charAt(i) == num.charAt(i+1) && num.charAt(i) == num.charAt(i+2)) {
+                sample = sample.compareTo(num.substring(i, i+3)) > 0 ? sample : num.substring(i, i+3);
+            }
+        }
+        return sample;
     }
     public static String reverseWords(String s) {
         ArrayList<String> list = new ArrayList<>();

@@ -16,9 +16,12 @@ public class Main {
 //        int i = ZerosLast.numJewelsInStones(jewel, stones);
         String num = "6777133339";
         String s = "Mr Ding";
-        String i = ZerosLast.largestGoodInteger(num);
+        int[][] matrix = {{1,3,5,7}, {10,11,16,20},{23,30,34,60}};
+        int target = 9;
+        boolean b = ZerosLast.searchMatrix(matrix , target);
+//        String i = ZerosLast.largestGoodInteger(num);
 //                ZerosLast.reverseWords(s);
-        System.out.println(i);
+        System.out.println(b);
         String  pattern = "abc";
 //        String s = "bdbd";
 //        String s = "()[]";
