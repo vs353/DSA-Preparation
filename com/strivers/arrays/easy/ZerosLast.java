@@ -3,6 +3,19 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static List<Integer> spiralOrder(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        List<Integer> list = new ArrayList<>();
+        for(int i =0; i<m; i++){
+            for(int j =0; j<n; j++){
+                if(i ==0 || j==2 && i==1){
+                    list.add(matrix[i][j]);
+                }
+            }
+        }
+        return list;
+    }
     public static  boolean searchMatrix(int[][] matrix, int target) {
         int m =matrix.length;
         int n =matrix[0].length;
