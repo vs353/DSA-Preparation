@@ -11,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
         int x = -121;
 //        int[] arr = {1,2,3,4,5};
-        int n = 5;
+        int n = 9669;
+        int b = ZerosLast.maximum69Number(n);
         int[] nums= {1, 2, 2, 4, 3, 1, 4};
         String jewel = "bcd";
         String stones = "cba";
@@ -21,7 +22,7 @@ public class Main {
 //        int [][] matrix = {{1,3}};
         int[][] matrix = {{1,2,3}, {4,5,6},{7,8,9}};
         int target = 3;
-        List<Integer> b = ZerosLast.spiralOrder(matrix);
+//        List<Integer> b = ZerosLast.spiralOrder(matrix);
 //                searchMatrix(matrix , target);
 //        String i = ZerosLast.largestGoodInteger(num);
 //                ZerosLast.reverseWords(s);

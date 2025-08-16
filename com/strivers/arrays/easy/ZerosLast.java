@@ -3,6 +3,17 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int maximum69Number (int num) {
+        char[] digit = String.valueOf(num).toCharArray();
+        for (int i = 0; i < digit.length; i++) {
+            if (digit[i] == '6') {
+                digit[i] = '9';
+                break;
+            }
+        }
+        return Integer.parseInt(new String(digit));
+    }
+
     public static List<Integer> spiralOrder(int[][] matrix) {
         int m = matrix.length;
         int n = matrix[0].length;
