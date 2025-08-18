@@ -3,6 +3,13 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static List<List<Integer>> subsets(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+
+        return Collections.singletonList(list);
+    }
+
+
     public static int maximum69Number (int num) {
         char[] digit = String.valueOf(num).toCharArray();
         for (int i = 0; i < digit.length; i++) {

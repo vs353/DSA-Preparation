@@ -12,12 +12,15 @@ public class Main {
         int x = -121;
 //        int[] arr = {1,2,3,4,5};
         int n = 9669;
-        int b = ZerosLast.maximum69Number(n);
+        int [] num = {1,2,3};
+        List<List<Integer>> list = ZerosLast.subsets(num);
+        System.out.println(list);
+//        int b = ZerosLast.maximum69Number(n);
         int[] nums= {1, 2, 2, 4, 3, 1, 4};
         String jewel = "bcd";
         String stones = "cba";
 //        int i = ZerosLast.numJewelsInStones(jewel, stones);
-        String num = "6777133339";
+//        String num = "6777133339";
         String s = "Mr Ding";
 //        int [][] matrix = {{1,3}};
         int[][] matrix = {{1,2,3}, {4,5,6},{7,8,9}};
@@ -26,7 +29,7 @@ public class Main {
 //                searchMatrix(matrix , target);
 //        String i = ZerosLast.largestGoodInteger(num);
 //                ZerosLast.reverseWords(s);
-        System.out.println(b);
+//        System.out.println(b);
         String  pattern = "abc";
 //        String s = "bdbd";
 //        String s = "()[]";
