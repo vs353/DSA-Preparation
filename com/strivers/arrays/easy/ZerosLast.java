@@ -3,6 +3,19 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static char findTheDifference(String s, String t) {
+        char c = 0;
+       for(int i =0; i<s.length();i++){
+           for(int j =0; j<t.length();j++){
+               if(s.charAt(i)==t.charAt(j)){
+
+               }
+               c = t.charAt(j);
+               return c;
+           }
+       }
+       return c;
+    }
     public static List<List<Integer>> subsets(int[] nums) {
         List<Integer> list = new ArrayList<>();
 
