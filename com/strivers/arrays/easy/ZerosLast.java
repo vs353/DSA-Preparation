@@ -3,6 +3,43 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int findContentChildren(int[] g, int[] s) {
+    int count=0; int i=0; int j=0;
+    Arrays.sort(g);
+    Arrays.sort(s);
+    while(i<g.length && j<s.length){
+        if(g[i]<=s[j]){
+            count++;
+            i++;
+        }
+        else {
+            j++;
+        }
+     }
+    return count;
+    }
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
+        for(int i : nums){
+            set.add(i);
+        }
+        int n = 1;
+        int[] uniqueArr = new int[set.size()];
+        int i = 0;
+        for (int num : set) {
+            uniqueArr[i++] = num;
+        }
+        int j =0;
+        while(n<=set.size()){
+            if(uniqueArr[j]!=n){
+                list.add(n);
+                j++;
+                n++;
+            }
+        }
+        return list;
+    }
     public static char findTheDifference(String s, String t) {
         char c = 0;
         for (char ch : s.toCharArray()) {

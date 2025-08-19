@@ -15,8 +15,14 @@ public class Main {
         int [] num = {1,2,3};
         String s ="abcd";
         String t ="abcde";
-        char c = ZerosLast.findTheDifference(s,t);
-        System.out.println(c);
+        int[] num1 ={10,9,8,7};
+        int[] num2 ={5,6,7,8};
+//        int[] num1 ={1,2};
+//        int[] num2 ={1,2,3};
+        int q = ZerosLast.findContentChildren(num1,num2);
+        System.out.println(q);
+//        char c = ZerosLast.findTheDifference(s,t);
+//        System.out.println(c);
 //        List<List<Integer>> list = ZerosLast.subsets(num);
 //        System.out.println(list);
 //        int b = ZerosLast.maximum69Number(n);
