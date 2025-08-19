@@ -3,6 +3,28 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public boolean checkValid(int[][] matrix) {
+        int m = matrix.length;
+        for(int i =0; i<m;i++){
+            HashSet<Integer> hs = new HashSet<>();
+            for(int j =0; j <m ; j++){
+                hs.add(matrix[i][j]);
+            }
+            if(hs.size()!=m){
+                return false;
+            }
+        }
+        for(int i =0; i<m; i++){
+            HashSet<Integer> hs = new HashSet<>();
+            for(int j =0; j<m; j++){
+                hs.add(matrix[j][i]);
+            }
+            if(hs.size()!=m){
+                return false;
+            }
+        }
+        return true;
+    }
     public static boolean searchMatrix1(int[][] matrix, int target) {
         int m = matrix.length;
         int n = matrix[0].length;
