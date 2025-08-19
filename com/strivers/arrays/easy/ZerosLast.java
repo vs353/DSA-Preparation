@@ -3,6 +3,18 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static boolean searchMatrix1(int[][] matrix, int target) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        for(int i =0; i<m;i++){
+            for(int j=0; j<n;j++){
+                if(matrix[i][j]==target){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public static int findContentChildren(int[] g, int[] s) {
     int count=0; int i=0; int j=0;
     Arrays.sort(g);
