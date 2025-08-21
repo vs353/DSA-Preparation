@@ -17,10 +17,13 @@ public class Main {
         String t ="abcde";
         int[] num1 ={10,9,8,7};
         int[] num2 ={5,6,7,8};
+        String sr = "aabaabaabaa";
+        String str = ZerosLast.makeFancyString(sr);
+        System.out.println(str);
 //        int[] num1 ={1,2};
 //        int[] num2 ={1,2,3};
-        int q = ZerosLast.findContentChildren(num1,num2);
-        System.out.println(q);
+//        int q = ZerosLast.findContentChildren(num1,num2);
+//        System.out.println(q);
 //        char c = ZerosLast.findTheDifference(s,t);
 //        System.out.println(c);
 //        List<List<Integer>> list = ZerosLast.subsets(num);

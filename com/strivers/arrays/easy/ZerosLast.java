@@ -3,6 +3,21 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static String makeFancyString(String s) {
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (i > 0 && s.charAt(i) == s.charAt(i - 1)) {
+                count++;
+            } else {
+                count = 1;
+            }
+            if (count <= 2) {
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
     public static int numSubmat(int[][] mat) {
         int m = mat.length, n = mat[0].length;
         int[][] height = new int[m][n];
