@@ -3,6 +3,24 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static boolean canConstruct(String ransomNote, String magazine) {
+        char[] ran = ransomNote.toCharArray();
+        char[] mag = magazine.toCharArray();
+        for (int i = 0; i < ran.length; i++) {
+            boolean found = false;
+            for (int j = 0; j < mag.length; j++) {
+                if (ran[i] == mag[j]) {
+                    mag[j] = '#';
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+        return true;
+    }
     public static int minimumArea(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
