@@ -3,6 +3,43 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int longestSubarray(int[] nums) {
+        int left = 0, zeros = 0, maxLen = 0;
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] == 0) {
+                zeros++;
+            }
+            while (zeros > 1) {
+                if (nums[left] == 0) {
+                    zeros--;
+                }
+                left++;
+            }
+            maxLen = Math.max(maxLen, right - left);
+        }
+        return maxLen;
+    }
+    public static int countCharacters(String[] words, String chars) { // not completed
+        int count = 0;
+        char[] cha = chars.toCharArray();
+        int t =0;
+        for (String word : words) {
+            while(t<words.length){
+                char[] ss = word.toCharArray();
+                for (int i = 0; i < cha.length; i++) {
+                    for (int j = 0; j < ss.length; j++) {
+                        if (ss[j] == cha[i]) {
+                            count++;
+                        } else {
+                            break;
+                        }
+                    }
+                    t++;
+                }
+            }
+        }
+        return count;
+    }
     public static boolean canConstruct(String ransomNote, String magazine) {
         char[] ran = ransomNote.toCharArray();
         char[] mag = magazine.toCharArray();

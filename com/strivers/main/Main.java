@@ -18,8 +18,12 @@ public class Main {
         int[] num1 ={10,9,8,7};
         int[] num2 ={5,6,7,8};
         String sr = "aabaabaabaa";
-        String str = ZerosLast.makeFancyString(sr);
-        System.out.println(str);
+        String [] word = {"cat","bt","hat","tree"};
+        String chars = "atach";
+        int in = ZerosLast.countCharacters(word , chars);
+        System.out.println(in);
+//        String str = ZerosLast.makeFancyString(sr);
+//        System.out.println(str);
 //        int[] num1 ={1,2};
 //        int[] num2 ={1,2,3};
 //        int q = ZerosLast.findContentChildren(num1,num2);
