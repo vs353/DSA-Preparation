@@ -3,6 +3,23 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int areaOfMaxDiagonal(int[][] dimensions) {
+        double maxDiagonal = 0.0;
+        int maxArea = 0;
+        for (int[] rect : dimensions) {
+            int l = rect[0];
+            int w = rect[1];
+            double diagonal = Math.sqrt(l * l + w * w);
+            int area = l * w;
+            if (diagonal > maxDiagonal) {
+                maxDiagonal = diagonal;
+                maxArea = area;
+            } else if (diagonal == maxDiagonal) {
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+        return maxArea;
+    }
     public static int[] findDiagonalOrder(int[][] mat) {
         if (mat == null || mat.length == 0) return new int[0];
         int m = mat.length, n = mat[0].length;
