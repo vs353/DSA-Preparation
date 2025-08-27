@@ -3,6 +3,15 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int totalFruit(int[] fruits) {
+        HashSet<Integer> set = new HashSet<>();
+        for(int i = 0; i<fruits.length; i++){
+            set.add(fruits[i]);
+        }
+        for(int i = ser; i<set.size();i++){
+
+        }
+    }
     public static int areaOfMaxDiagonal(int[][] dimensions) {
         double maxDiagonal = 0.0;
         int maxArea = 0;
