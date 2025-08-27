@@ -12,6 +12,8 @@ public class Main {
         int x = -121;
 //        int[] arr = {1,2,3,4,5};
         int n = 9669;
+        int [] fruits = {0,1,2,2};
+        int f = ZerosLast.totalFruit(fruits);
         int [] num = {1,2,3};
         String s ="abcd";
         String t ="abcde";
@@ -20,8 +22,8 @@ public class Main {
         String sr = "aabaabaabaa";
         String [] word = {"cat","bt","hat","tree"};
         String chars = "atach";
-        int in = ZerosLast.countCharacters(word , chars);
-        System.out.println(in);
+//        int in = ZerosLast.countCharacters(word , chars);
+//        System.out.println(in);
 //        String str = ZerosLast.makeFancyString(sr);
 //        System.out.println(str);
 //        int[] num1 ={1,2};

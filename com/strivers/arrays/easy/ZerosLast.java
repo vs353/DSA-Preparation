@@ -4,13 +4,32 @@ import java.util.*;
 
 public class ZerosLast {
     public static int totalFruit(int[] fruits) {
-        HashSet<Integer> set = new HashSet<>();
-        for(int i = 0; i<fruits.length; i++){
-            set.add(fruits[i]);
+        Arrays.sort(fruits);
+        int max = fruits[0];
+        int count =0;
+        int add =1;
+        for(int i =0; i<fruits.length; i++){
+            if(fruits[i]==max && add <=2){
+//                add
+                count++;
+            }
+            else {
+                add++;
+                count++;
+            }
         }
-        for(int i = ser; i<set.size();i++){
 
-        }
+//
+//        HashSet<Integer> set = new HashSet<>();
+//        int count =0;
+//        for(int i = 0; i<fruits.length; i++){
+//            set.add(fruits[i]);
+//        }
+//
+//        for(int i = set.size(); i>0;i--){
+//            System.out.println(set.contains(i));
+//        }
+        return count;
     }
     public static int areaOfMaxDiagonal(int[][] dimensions) {
         double maxDiagonal = 0.0;
