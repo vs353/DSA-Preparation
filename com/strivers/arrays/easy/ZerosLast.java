@@ -3,6 +3,44 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static boolean isValidSudoku(char[][] board) {
+        int n = 9;
+        for (int r = 0; r < n; r++) {
+            Set<Character> seen = new HashSet<>();
+            for (int c = 0; c < n; c++) {
+                char val = board[r][c];
+                if (val != '.') {
+                    if (seen.contains(val)) return false;
+                    seen.add(val);
+                }
+            }
+        }
+        for (int c = 0; c < n; c++) {
+            Set<Character> seen = new HashSet<>();
+            for (int r = 0; r < n; r++) {
+                char val = board[r][c];
+                if (val != '.') {
+                    if (seen.contains(val)) return false;
+                    seen.add(val);
+                }
+            }
+        }
+        for (int boxRow = 0; boxRow < 9; boxRow += 3) {
+            for (int boxCol = 0; boxCol < 9; boxCol += 3) {
+                Set<Character> seen = new HashSet<>();
+                for (int r = 0; r < 3; r++) {
+                    for (int c = 0; c < 3; c++) {
+                        char val = board[boxRow + r][boxCol + c];
+                        if (val != '.') {
+                            if (seen.contains(val)) return false;
+                            seen.add(val);
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
     public static int totalFruit(int[] fruits) {
         Arrays.sort(fruits);
         int max = fruits[0];
