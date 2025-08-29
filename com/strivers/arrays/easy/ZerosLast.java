@@ -3,6 +3,14 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static long flowerGame(int n, int m) {
+        long oddN = (n + 1) / 2;
+        long evenN = n / 2;
+        long oddM = (m + 1) / 2;
+        long evenM = m / 2;
+
+        return oddN * evenM + evenN * oddM;
+    }
     public static boolean isValidSudoku(char[][] board) {
         int n = 9;
         for (int r = 0; r < n; r++) {
