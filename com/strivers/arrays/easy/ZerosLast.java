@@ -3,6 +3,16 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int repeatedNTimes(int[] nums) {
+        Hashtable<Integer, Integer> hashTable = new Hashtable<>();
+        for (int num : nums) {
+            hashTable.put(num, hashTable.getOrDefault(num, 0) + 1);
+            if (hashTable.get(num) > 1) {
+                return num;
+            }
+        }
+        return -1;
+    }
     public static int distributeCandies(int[] candyType) {
         int n = candyType.length;
         HashSet<Integer> set = new HashSet<>();

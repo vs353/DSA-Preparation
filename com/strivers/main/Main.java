@@ -10,7 +10,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         int[] candy = {1,1,1,1,2,2,2,3,3,3};
-        int sssss = ZerosLast.distributeCandies(candy);
+        int[] nums= {1,2,3,3};
+        int sssss = ZerosLast.repeatedNTimes(nums);
+//                ZerosLast.distributeCandies(candy);
         System.out.println(sssss);
         int x = -121;
 //        int[] arr = {1,2,3,4,5};
@@ -38,7 +40,7 @@ public class Main {
 //        List<List<Integer>> list = ZerosLast.subsets(num);
 //        System.out.println(list);
 //        int b = ZerosLast.maximum69Number(n);
-        int[] nums= {1, 2, 2, 4, 3, 1, 4};
+//        int[] nums= {1, 2, 2, 4, 3, 1, 4};
         String jewel = "bcd";
         String stones = "cba";
 //        int i = ZerosLast.numJewelsInStones(jewel, stones);
