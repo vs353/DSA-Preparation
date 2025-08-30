@@ -3,6 +3,20 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int distributeCandies(int[] candyType) {
+        int n = candyType.length;
+        HashSet<Integer> set = new HashSet<>();
+        for (int j : candyType) {
+            set.add(j);
+        }
+        int siz = n/2;
+        for(int i =0; i<n; i++){
+            if(siz<set.size()){
+                return siz;
+            }
+        }
+        return set.size();
+    }
     public static long flowerGame(int n, int m) {
         long oddN = (n + 1) / 2;
         long evenN = n / 2;

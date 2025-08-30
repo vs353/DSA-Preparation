@@ -9,11 +9,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        int[] candy = {1,1,1,1,2,2,2,3,3,3};
+        int sssss = ZerosLast.distributeCandies(candy);
+        System.out.println(sssss);
         int x = -121;
 //        int[] arr = {1,2,3,4,5};
         int n = 9669;
         int [] fruits = {0,1,2,2};
-        int f = ZerosLast.totalFruit(fruits);
+//        int f = ZerosLast.totalFruit(fruits);
         int [] num = {1,2,3};
         String s ="abcd";
         String t ="abcde";
