@@ -9,11 +9,16 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        int [] n1 = {1,1,3,2};
+        int [] n2 = {2,3};
+        int [] n3 = {3};
+        List<Integer> d = ZerosLast.twoOutOfThree(n1, n2, n3);
+        System.out.println(d);
         int[] candy = {1,1,1,1,2,2,2,3,3,3};
         int[] nums= {1,2,3,3};
-        int sssss = ZerosLast.repeatedNTimes(nums);
+//        int sssss = ZerosLast.repeatedNTimes(nums);
 //                ZerosLast.distributeCandies(candy);
-        System.out.println(sssss);
+//        System.out.println(sssss);
         int x = -121;
 //        int[] arr = {1,2,3,4,5};
         int n = 9669;

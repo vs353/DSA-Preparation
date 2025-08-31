@@ -3,6 +3,68 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        Hashtable<Integer, Integer> hashTable = new Hashtable<>();
+        List<Integer> result = new ArrayList<>();
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+        Set<Integer> set3 = new HashSet<>();
+        for (int n : nums1) set1.add(n);
+        for (int n : nums2) set2.add(n);
+        for (int n : nums3) set3.add(n);
+        for (int n : set1) hashTable.put(n, hashTable.getOrDefault(n, 0) + 1);
+        for (int n : set2) hashTable.put(n, hashTable.getOrDefault(n, 0) + 1);
+        for (int n : set3) hashTable.put(n, hashTable.getOrDefault(n, 0) + 1);
+        for (Map.Entry<Integer, Integer> entry : hashTable.entrySet()) {
+            if (entry.getValue() >= 2) {
+                result.add(entry.getKey());
+            }
+        }
+        return result;
+//        List<Integer> list = new ArrayList<>();
+//        int num1 = nums1.length;
+//        int num2 = nums2.length;
+//        int num3 = nums3.length;
+//        Hashtable<Integer, Integer> hashTable = new Hashtable<>();
+//        for (int num : nums1) {
+//            hashTable.put(num, hashTable.getOrDefault(num, 0) + 1);
+//        }
+//        for (int num : nums2) {
+//            hashTable.put(num, hashTable.getOrDefault(num, 0) + 1);
+//        }
+//        for (int num : nums3) {
+//            hashTable.put(num, hashTable.getOrDefault(num, 0) + 1);
+//        }
+//        for (Integer key : hashTable.keySet()) {
+//            if (hashTable.get(key) >= 2) {
+//                list.add(key);
+//            }
+//        }
+//
+////        HashSet<Integer> set = new HashSet<>();
+////        for(int n1 : nums1){
+////            set.add(n1);
+////        }
+////        for(int n2 : nums2){
+////            set.add(n2);
+////        }
+////        for(int n3 : nums3){
+////            set.add(n3);
+////        }
+////        for(int i =0; i<set.size(); i++){
+////            list.add(i);
+////        }
+//
+//
+//        // if(num1 >= num2 || num1>=num3){
+//        //    for(int i =0; i<num1 ; i++){
+//        //     for(int j = 0; j<num2; j++){
+//        //         if()
+//        //     }
+//        //    }
+//        // }
+//        return list;
+    }
     public static void solveSudoku(char[][] board) {
         solve(board);
     }
