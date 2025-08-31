@@ -13,10 +13,9 @@ public class Task1_0403 {
 //                arr[i] = sc.nextInt();
 //            }
             int i = 0;
-            while(n!=0){
+            while(i<n){
                 arr[i] = sc.nextInt();
                 i++;
-                n--;
             }
 
             for(int j = 0 ; j < arr.length ; j++){
