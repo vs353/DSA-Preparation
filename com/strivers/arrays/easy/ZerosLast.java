@@ -3,6 +3,39 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static void solveSudoku(char[][] board) {
+        solve(board);
+    }
+    private static boolean solve(char[][] board) {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (board[row][col] == '.') {
+                    for (char c = '1'; c <= '9'; c++) {
+                        if (isValid(board, row, col, c)) {
+                            board[row][col] = c;
+                            if (solve(board)) {
+                                return true;
+                            } else {
+                                board[row][col] = '.';
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    private static boolean isValid(char[][] board, int row, int col, char c) {
+        for (int i = 0; i < 9; i++) {
+            if (board[row][i] == c) return false;
+            if (board[i][col] == c) return false;
+            int subRow = 3 * (row / 3) + i / 3;
+            int subCol = 3 * (col / 3) + i % 3;
+            if (board[subRow][subCol] == c) return false;
+        }
+        return true;
+    }
     public static int repeatedNTimes(int[] nums) {
         Hashtable<Integer, Integer> hashTable = new Hashtable<>();
         for (int num : nums) {
