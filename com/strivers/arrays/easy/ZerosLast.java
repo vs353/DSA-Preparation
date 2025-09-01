@@ -3,6 +3,34 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static double maxAverageRatio(int[][] classes, int extraStudents) {
+        PriorityQueue<double[]> pq = new PriorityQueue<>(
+                (a, b) -> Double.compare(b[0], a[0])
+        );
+        for (int[] c : classes) {
+            int pass = c[0], total = c[1];
+            double delta = gain(pass, total);
+            pq.offer(new double[]{delta, pass, total});
+        }
+        while (extraStudents-- > 0) {
+            double[] top = pq.poll();
+            int pass = (int) top[1];
+            int total = (int) top[2];
+            pass++;
+            total++;
+            double delta = gain(pass, total);
+            pq.offer(new double[]{delta, pass, total});
+        }
+        double sum = 0.0;
+        while (!pq.isEmpty()) {
+            double[] cur = pq.poll();
+            sum += cur[1] / cur[2];
+        }
+        return sum / classes.length;
+    }
+    private static double gain(int pass, int total) {
+        return (double)(pass + 1) / (total + 1) - (double) pass / total;
+    }
     public static List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
         Hashtable<Integer, Integer> hashTable = new Hashtable<>();
         List<Integer> result = new ArrayList<>();
