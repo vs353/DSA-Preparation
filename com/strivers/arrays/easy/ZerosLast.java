@@ -3,6 +3,17 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int findClosest(int x, int y, int z) {
+        int dist1 = Math.abs(x - z);
+        int dist2 = Math.abs(y - z);
+        if (dist1 == dist2) {
+            return 0;
+        } else if (dist1 < dist2) {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
     public static int numberOfPairs1(int[][] points) {
         int n = points.length;
         int count = 0;
