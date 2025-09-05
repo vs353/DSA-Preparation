@@ -3,6 +3,18 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int makeTheIntegerZero(int num1, int num2) {
+        for (int k = 1; k <= 60; k++) {
+            long val = (long) num1 - (long) k * num2;
+            if (val < k)
+                continue;
+            int bits = Long.bitCount(val);
+            if (bits <= k && k <= val) {
+                return k;
+            }
+        }
+        return -1;
+    }
     public static int findClosest(int x, int y, int z) {
         int dist1 = Math.abs(x - z);
         int dist2 = Math.abs(y - z);
