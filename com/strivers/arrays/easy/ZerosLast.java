@@ -3,6 +3,45 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static long minOperations(int[][] queries) {
+        long result = 0;
+        for (int[] q : queries) {
+            long l = q[0], r = q[1];
+            long totalSteps = stepsInRange(r) - stepsInRange(l - 1);
+            result += (totalSteps + 1) / 2;
+        }
+        return result;
+    }
+
+    private static long stepsInRange(long x) {
+        if (x <= 0)
+            return 0;
+        long sum = 0;
+        long start = 1;
+        int step = 1;
+
+        while (start <= x) {
+            long end = start * 4 - 1;
+            if (end > x)
+                end = x;
+            sum += (end - start + 1) * (long) step;
+            start *= 4;
+            step++;
+        }
+        return sum;
+    }
+    public static int[] sumZero(int n) {
+        int[] result = new int[n];
+        int index = 0;
+        for (int i = 1; i <= n / 2; i++) {
+            result[index++] = i;
+            result[index++] = -i;
+        }
+        if (n % 2 == 1) {
+            result[index] = 0;
+        }
+        return result;
+    }
     public static int makeTheIntegerZero(int num1, int num2) {
         for (int k = 1; k <= 60; k++) {
             long val = (long) num1 - (long) k * num2;
