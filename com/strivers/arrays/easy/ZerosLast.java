@@ -3,6 +3,36 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int[] getNoZeroIntegers(int n) {
+        for (int a = 1; a < n; a++) {
+            int b = n - a;
+            if (isValid(a) && isValid(b)) {
+                return new int[] { a, b };
+            }
+        }
+        return new int[0];
+    }
+    private static boolean isValid(int num) {
+        while (num > 0) {
+            if (num % 10 == 0) {
+                return false;
+            }
+            num /= 10;
+        }
+        return true;
+    }
+//        int[] arr = new int[2];
+//        if(n>10){
+//            for(int i =0 ; i<1; i++){
+//                arr[i]=9;
+//                i++;
+//                arr[i]= n-9;
+//            }
+//
+//        }
+//        Arrays.sort(arr);
+//        return arr;
+
     public static long minOperations(int[][] queries) {
         long result = 0;
         for (int[] q : queries) {
