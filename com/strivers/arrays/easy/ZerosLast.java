@@ -3,6 +3,45 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int minimumTeachings(int n, int[][] languages, int[][] friendships) {
+        int m = languages.length;
+        List<Set<Integer>> langSets = new ArrayList<>();
+        for (int[] langs : languages) {
+            Set<Integer> set = new HashSet<>();
+            for (int l : langs)
+                set.add(l);
+            langSets.add(set);
+        }
+        Set<Integer> problematic = new HashSet<>();
+        for (int[] f : friendships) {
+            int u = f[0] - 1, v = f[1] - 1;
+            if (!canCommunicate(langSets.get(u), langSets.get(v))) {
+                problematic.add(u);
+                problematic.add(v);
+            }
+        }
+        if (problematic.isEmpty())
+            return 0;
+        int minTeach = Integer.MAX_VALUE;
+        for (int lang = 1; lang <= n; lang++) {
+            int knows = 0;
+            for (int user : problematic) {
+                if (langSets.get(user).contains(lang)) {
+                    knows++;
+                }
+            }
+            minTeach = Math.min(minTeach, problematic.size() - knows);
+        }
+        return minTeach;
+    }
+
+    private static boolean canCommunicate(Set<Integer> a, Set<Integer> b) {
+        for (int lang : a) {
+            if (b.contains(lang))
+                return true;
+        }
+        return false;
+    }
     public static int peopleAwareOfSecret(int n, int delay, int forget) {
         int MOD = 1_000_000_007;
         long[] dp = new long[n + 1];
