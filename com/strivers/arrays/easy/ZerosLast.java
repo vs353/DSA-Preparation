@@ -3,6 +3,26 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static String sortVowels(String s) {
+        String vowels = "aeiouAEIOU";
+        List<Character> extracted = new ArrayList<>();
+        for (char ch : s.toCharArray()) {
+            if (vowels.indexOf(ch) != -1) {
+                extracted.add(ch);
+            }
+        }
+        Collections.sort(extracted);
+        StringBuilder result = new StringBuilder();
+        int idx = 0;
+        for (char ch : s.toCharArray()) {
+            if (vowels.indexOf(ch) != -1) {
+                result.append(extracted.get(idx++));
+            } else {
+                result.append(ch);
+            }
+        }
+        return result.toString();
+    }
     public static int minimumTeachings(int n, int[][] languages, int[][] friendships) {
         int m = languages.length;
         List<Set<Integer>> langSets = new ArrayList<>();
