@@ -3,6 +3,16 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static boolean doesAliceWin(String s) {
+        int vowels = 0;
+        for (char c : s.toCharArray()) {
+            if (isVowel(c)) vowels++;
+        }
+        return vowels > 0;
+    }
+    private static boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    }
     public static String sortVowels(String s) {
         String vowels = "aeiouAEIOU";
         List<Character> extracted = new ArrayList<>();
