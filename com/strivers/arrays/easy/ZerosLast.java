@@ -3,6 +3,26 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static int canBeTypedWords(String text, String brokenLetters) {
+        boolean[] broken = new boolean[26];
+        for (char c : brokenLetters.toCharArray()) {
+            broken[c - 'a'] = true;
+        }
+        int count = 0;
+        String[] words = text.split(" ");
+        for (String word : words) {
+            boolean canType = true;
+            for (char c : word.toCharArray()) {
+                if (broken[c - 'a']) {
+                    canType = false;
+                    break;
+                }
+            }
+            if (canType)
+                count++;
+        }
+        return count;
+    }
     public static  String[] spellchecker(String[] wordlist, String[] queries) {
         Set<String> exactWords = new HashSet<>();
         Map<String, String> caseInsensitive = new HashMap<>();
