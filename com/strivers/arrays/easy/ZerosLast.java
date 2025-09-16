@@ -3,6 +3,35 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    public static List<Integer> replaceNonCoprimes(int[] nums) {
+        List<Integer> stack = new ArrayList<>();
+        for (int num : nums) {
+            int curr = num;
+            while (!stack.isEmpty()) {
+                int last = stack.get(stack.size() - 1);
+                int g = gcd(last, curr);
+                if (g > 1) {
+                    stack.remove(stack.size() - 1);
+                    curr = lcm(last, curr);
+                } else {
+                    break;
+                }
+            }
+            stack.add(curr);
+        }
+        return stack;
+    }
+    private static int gcd(int a, int b) {
+        while (b != 0) {
+            int tmp = a % b;
+            a = b;
+            b = tmp;
+        }
+        return a;
+    }
+    private static int lcm(int a, int b) {
+        return (int)((long)a / gcd(a, b) * b);
+    }
     public static int canBeTypedWords(String text, String brokenLetters) {
         boolean[] broken = new boolean[26];
         for (char c : brokenLetters.toCharArray()) {
