@@ -3,6 +3,53 @@ package com.strivers.arrays.easy;
 import java.util.*;
 
 public class ZerosLast {
+    private Map<String, String> foodToCuisine;
+    private Map<String, Integer> foodToRating;
+    private Map<String, TreeSet<String>> cuisineToFoods;
+
+    public void FoodRatings(String[] foods, String[] cuisines, int[] ratings) {
+        foodToCuisine = new HashMap<>();
+        foodToRating = new HashMap<>();
+        cuisineToFoods = new HashMap<>();
+
+        Comparator<String> comp = (a, b) -> {
+            int r1 = foodToRating.get(a);
+            int r2 = foodToRating.get(b);
+            if (r1 != r2) {
+                return r2 - r1;
+            }
+            return a.compareTo(b);
+        };
+
+        for (int i = 0; i < foods.length; i++) {
+            String food = foods[i];
+            String cuisine = cuisines[i];
+            int rating = ratings[i];
+
+            foodToCuisine.put(food, cuisine);
+            foodToRating.put(food, rating);
+
+            cuisineToFoods.putIfAbsent(cuisine, new TreeSet<>(comp));
+            cuisineToFoods.get(cuisine).add(food);
+        }
+    }
+
+    public void changeRating(String food, int newRating) {
+        String cuisine = foodToCuisine.get(food);
+        TreeSet<String> foodsSet = cuisineToFoods.get(cuisine);
+
+        foodsSet.remove(food);
+
+        foodToRating.put(food, newRating);
+
+        foodsSet.add(food);
+    }
+
+    public String highestRated(String cuisine) {
+        return cuisineToFoods.get(cuisine).first();
+    }
+
+
     public static List<Integer> replaceNonCoprimes(int[] nums) {
         List<Integer> stack = new ArrayList<>();
         for (int num : nums) {
