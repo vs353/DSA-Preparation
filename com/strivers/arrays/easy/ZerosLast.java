@@ -2,6 +2,57 @@ package com.strivers.arrays.easy;
 
 import java.util.*;
 
+class TaskManager {
+    private Map<Integer, int[]> taskMap;
+    private PriorityQueue<int[]> pq;
+    public TaskManager(List<List<Integer>> tasks) {
+        taskMap = new HashMap<>();
+        pq = new PriorityQueue<>((a, b) -> {
+            if (b[1] != a[1]) return b[1] - a[1];
+            return b[0] - a[0];
+        });
+
+        for (List<Integer> t : tasks) {
+            int userId = t.get(0);
+            int taskId = t.get(1);
+            int priority = t.get(2);
+            taskMap.put(taskId, new int[]{userId, priority});
+            pq.offer(new int[]{taskId, priority});
+        }
+    }
+
+    public void add(int userId, int taskId, int priority) {
+        taskMap.put(taskId, new int[]{userId, priority});
+        pq.offer(new int[]{taskId, priority});
+    }
+
+    public void edit(int taskId, int newPriority) {
+        int[] userPriority = taskMap.get(taskId);
+        userPriority[1] = newPriority;
+        taskMap.put(taskId, userPriority);
+        pq.offer(new int[]{taskId, newPriority});
+    }
+
+    public void rmv(int taskId) {
+        taskMap.remove(taskId);
+    }
+
+    public int execTop() {
+        while (!pq.isEmpty()) {
+            int[] top = pq.poll();
+            int taskId = top[0], priority = top[1];
+            if (taskMap.containsKey(taskId)) {
+                int[] userPriority = taskMap.get(taskId);
+                if (userPriority[1] == priority) {
+                    taskMap.remove(taskId);
+                    return userPriority[0];
+                }
+            }
+        }
+        return -1;
+    }
+}
+
 public class ZerosLast {
     private Map<String, String> foodToCuisine;
     private Map<String, Integer> foodToRating;
