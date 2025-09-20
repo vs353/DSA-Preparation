@@ -1,6 +1,88 @@
 package com.strivers.arrays.easy;
 
 import java.util.*;
+class Router {
+    private int memoryLimit;
+    private Deque<int[]> queue;
+    private Set<String> packetSet;
+    private Map<Integer, Deque<Integer>> destMap;
+
+    public Router(int memoryLimit) {
+        this.memoryLimit = memoryLimit;
+        this.queue = new ArrayDeque<>();
+        this.packetSet = new HashSet<>();
+        this.destMap = new HashMap<>();
+    }
+
+    public boolean addPacket(int source, int destination, int timestamp) {
+        String key = source + "#" + destination + "#" + timestamp;
+        if (packetSet.contains(key)) return false;
+
+        if (queue.size() == memoryLimit) {
+            int[] old = queue.pollFirst();
+            String oldKey = old[0] + "#" + old[1] + "#" + old[2];
+            packetSet.remove(oldKey);
+
+            Deque<Integer> dq = destMap.get(old[1]);
+            dq.pollFirst();
+            if (dq.isEmpty()) destMap.remove(old[1]);
+        }
+
+        int[] packet = new int[]{source, destination, timestamp};
+        queue.offerLast(packet);
+        packetSet.add(key);
+
+        destMap.putIfAbsent(destination, new ArrayDeque<>());
+        destMap.get(destination).offerLast(timestamp);
+
+        return true;
+    }
+
+    public int[] forwardPacket() {
+        if (queue.isEmpty()) return new int[0];
+
+        int[] packet = queue.pollFirst();
+        String key = packet[0] + "#" + packet[1] + "#" + packet[2];
+        packetSet.remove(key);
+
+        Deque<Integer> dq = destMap.get(packet[1]);
+        dq.pollFirst();
+        if (dq.isEmpty()) destMap.remove(packet[1]);
+
+        return packet;
+    }
+
+    public int getCount(int destination, int startTime, int endTime) {
+        if (!destMap.containsKey(destination)) return 0;
+
+        Deque<Integer> dq = destMap.get(destination);
+        List<Integer> list = new ArrayList<>(dq);
+        int left = lowerBound(list, startTime);
+        int right = upperBound(list, endTime);
+        return right - left;
+    }
+
+    private int lowerBound(List<Integer> list, int val) {
+        int l = 0, r = list.size();
+        while (l < r) {
+            int m = (l + r) / 2;
+            if (list.get(m) >= val) r = m;
+            else l = m + 1;
+        }
+        return l;
+    }
+
+    private int upperBound(List<Integer> list, int val) {
+        int l = 0, r = list.size();
+        while (l < r) {
+            int m = (l + r) / 2;
+            if (list.get(m) > val) r = m;
+            else l = m + 1;
+        }
+        return l;
+    }
+}
+
 class Spreadsheet {
     private int[][] grid;
 
