@@ -1,6 +1,70 @@
 package com.strivers.arrays.easy;
 
 import java.util.*;
+class MovieRentingSystem {
+    private Map<Integer, TreeSet<int[]>> available;
+    private Map<String, Integer> priceMap;
+    private TreeSet<int[]> rented;
+
+    public MovieRentingSystem(int n, int[][] entries) {
+        available = new HashMap<>();
+        priceMap = new HashMap<>();
+        rented = new TreeSet<>((a, b) -> {
+            if (a[2] != b[2])
+                return a[2] - b[2];
+            if (a[0] != b[0])
+                return a[0] - b[0];
+            return a[1] - b[1];
+        });
+
+        for (int[] e : entries) {
+            int shop = e[0], movie = e[1], price = e[2];
+            priceMap.put(key(shop, movie), price);
+            available.computeIfAbsent(movie, k -> new TreeSet<>((x, y) -> {
+                if (x[1] != y[1])
+                    return x[1] - y[1];
+                return x[0] - y[0];
+            })).add(new int[] { shop, price });
+        }
+    }
+
+    public List<Integer> search(int movie) {
+        List<Integer> res = new ArrayList<>();
+        if (!available.containsKey(movie))
+            return res;
+        Iterator<int[]> it = available.get(movie).iterator();
+        while (it.hasNext() && res.size() < 5) {
+            res.add(it.next()[0]);
+        }
+        return res;
+    }
+
+    public void rent(int shop, int movie) {
+        int price = priceMap.get(key(shop, movie));
+        available.get(movie).remove(new int[] { shop, price });
+        rented.add(new int[] { shop, movie, price });
+    }
+
+    public void drop(int shop, int movie) {
+        int price = priceMap.get(key(shop, movie));
+        rented.remove(new int[] { shop, movie, price });
+        available.get(movie).add(new int[] { shop, price });
+    }
+
+    public List<List<Integer>> report() {
+        List<List<Integer>> res = new ArrayList<>();
+        Iterator<int[]> it = rented.iterator();
+        while (it.hasNext() && res.size() < 5) {
+            int[] r = it.next();
+            res.add(Arrays.asList(r[0], r[1]));
+        }
+        return res;
+    }
+
+    private String key(int shop, int movie) {
+        return shop + "," + movie;
+    }
+}
 class Router {
     private int memoryLimit;
     private Deque<int[]> queue;
