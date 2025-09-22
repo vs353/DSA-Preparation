@@ -240,6 +240,22 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int maxFrequencyElements(int[] nums) {
+        Map<Integer, Integer> freq = new HashMap<>();
+        int maxFreq = 0;
+        for (int num : nums) {
+            int f = freq.getOrDefault(num, 0) + 1;
+            freq.put(num, f);
+            maxFreq = Math.max(maxFreq, f);
+        }
+        int total = 0;
+        for (int f : freq.values()) {
+            if (f == maxFreq) {
+                total += f;
+            }
+        }
+        return total;
+    }
     private Map<String, String> foodToCuisine;
     private Map<String, Integer> foodToRating;
     private Map<String, TreeSet<String>> cuisineToFoods;
