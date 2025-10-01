@@ -240,6 +240,16 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int drank = numBottles;
+        int empty = numBottles;
+        while (empty >= numExchange) {
+            int newFull = empty / numExchange;
+            drank += newFull;
+            empty = empty % numExchange + newFull;
+        }
+        return drank;
+    }
     public int minScoreTriangulation(int[] values) {
         int n = values.length;
         int[][] dp = new int[n][n];
