@@ -311,9 +311,9 @@ public class ZerosLast {
         dfs(heights, visited, r, c + 1, heights[r][c]);
         dfs(heights, visited, r, c - 1, heights[r][c]);
     }
-    private static class Cell {
+    private static class Cell1 {
         int row, col, height;
-        Cell(int r, int c, int h) {
+        Cell1(int r, int c, int h) {
             row = r;
             col = c;
             height = h;
