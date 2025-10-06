@@ -240,6 +240,41 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int swimInWater(int[][] grid) {
+        int n = grid.length;
+        boolean[][] visited = new boolean[n][n];
+        PriorityQueue<Cell> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.height));
+        pq.offer(new Cell(0, 0, grid[0][0]));
+        int[][] directions = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
+        int res = 0;
+        while (!pq.isEmpty()) {
+            Cell curr = pq.poll();
+            res = Math.max(res, curr.height);
+            if (curr.row == n - 1 && curr.col == n - 1) {
+                return res;
+            }
+            if (visited[curr.row][curr.col])
+                continue;
+            visited[curr.row][curr.col] = true;
+            for (int[] dir : directions) {
+                int nr = curr.row + dir[0];
+                int nc = curr.col + dir[1];
+                if (nr >= 0 && nr < n && nc >= 0 && nc < n && !visited[nr][nc]) {
+                    pq.offer(new Cell(nr, nc, grid[nr][nc]));
+                }
+            }
+        }
+        return -1;
+    }
+    private static class Cell {
+        int row, col, height;
+
+        Cell(int r, int c, int h) {
+            row = r;
+            col = c;
+            height = h;
+        }
+    }
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
         int m = heights.length, n = heights[0].length;
         boolean[][] pacific = new boolean[m][n];
