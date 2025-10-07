@@ -240,6 +240,32 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int[] avoidFlood(int[] rains) {
+        int n = rains.length;
+        int[] ans = new int[n];
+        Map<Integer, Integer> fullLakes = new HashMap<>();
+        TreeSet<Integer> dryDays = new TreeSet<>();
+        for (int i = 0; i < n; i++) {
+            if (rains[i] == 0) {
+                dryDays.add(i);
+                ans[i] = 1;
+            } else {
+                int lake = rains[i];
+                ans[i] = -1;
+                if (fullLakes.containsKey(lake)) {
+                    int lastRainDay = fullLakes.get(lake);
+                    Integer dryDay = dryDays.higher(lastRainDay);
+                    if (dryDay == null) {
+                        return new int[0];
+                    }
+                    ans[dryDay] = lake;
+                    dryDays.remove(dryDay);
+                }
+                fullLakes.put(lake, i);
+            }
+        }
+        return ans;
+    }
     public int swimInWater(int[][] grid) {
         int n = grid.length;
         boolean[][] visited = new boolean[n][n];
