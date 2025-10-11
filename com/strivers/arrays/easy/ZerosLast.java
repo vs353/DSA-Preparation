@@ -240,6 +240,26 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public long maximumTotalDamage(int[] power) {
+        Map<Integer, Long> sum = new HashMap<>();
+        for (int p : power)
+            sum.put(p, sum.getOrDefault(p, 0L) + p);
+        List<Integer> vals = new ArrayList<>(sum.keySet());
+        Collections.sort(vals);
+        int n = vals.size();
+        long[] dp = new long[n];
+        dp[0] = sum.get(vals.get(0));
+        for (int i = 1; i < n; i++) {
+            long take = sum.get(vals.get(i));
+            int j = i - 1;
+            while (j >= 0 && vals.get(i) - vals.get(j) <= 2)
+                j--;
+            if (j >= 0)
+                take += dp[j];
+            dp[i] = Math.max(dp[i - 1], take);
+        }
+        return dp[n - 1];
+    }
     public int maximumEnergy(int[] energy, int k) {
         int n = energy.length;
         int[] dp = new int[n];
