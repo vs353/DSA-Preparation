@@ -240,6 +240,31 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int maxIncreasingSubarrays(List<Integer> nums) {
+        int n = nums.size(), ans = 0, inc = 1;
+        for (int i = 1; i < n; i++) {
+            if (nums.get(i) > nums.get(i - 1))
+                inc++;
+            else
+                inc = 1;
+            ans = Math.max(ans, inc / 2);
+        }
+        int len = 1;
+        List<Integer> runs = new ArrayList<>();
+        for (int i = 1; i < n; i++) {
+            if (nums.get(i) > nums.get(i - 1))
+                len++;
+            else {
+                runs.add(len);
+                len = 1;
+            }
+        }
+        runs.add(len);
+        for (int i = 0; i + 1 < runs.size(); i++) {
+            ans = Math.max(ans, Math.min(runs.get(i), runs.get(i + 1)));
+        }
+        return ans;
+    }
     public boolean hasIncreasingSubarrays(List<Integer> nums, int k) {
         int n = nums.size();
         for (int i = 0; i + 2 * k <= n; i++) {
