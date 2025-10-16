@@ -240,6 +240,22 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int findSmallestInteger(int[] nums, int value) {
+        int[] freq = new int[value];
+        for (int num : nums) {
+            int mod = ((num % value) + value) % value;
+            freq[mod]++;
+        }
+        int mex = 0;
+        while (true) {
+            int mod = mex % value;
+            if (freq[mod] == 0)
+                break;
+            freq[mod]--;
+            mex++;
+        }
+        return mex;
+    }
     public int maxIncreasingSubarrays(List<Integer> nums) {
         int n = nums.size(), ans = 0, inc = 1;
         for (int i = 1; i < n; i++) {
