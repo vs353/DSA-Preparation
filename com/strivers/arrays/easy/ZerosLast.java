@@ -240,6 +240,20 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int maxDistinctElements(int[] nums, int k) {
+        Arrays.sort(nums);
+        int count = 0;
+        long last = Long.MIN_VALUE;
+
+        for (int num : nums) {
+            long candidate = Math.max(last + 1, (long) num - k);
+            if (candidate <= (long) num + k) {
+                count++;
+                last = candidate;
+            }
+        }
+        return count;
+    }
     public int findSmallestInteger(int[] nums, int value) {
         int[] freq = new int[value];
         for (int num : nums) {
