@@ -240,6 +240,38 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public String findLexSmallestString(String s, int a, int b) {
+        Set<String> seen = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        String res = s;
+        queue.offer(s);
+        seen.add(s);
+        while (!queue.isEmpty()) {
+            String cur = queue.poll();
+            if (cur.compareTo(res) < 0)
+                res = cur;
+            String added = add(cur, a);
+            if (seen.add(added))
+                queue.offer(added);
+            String rotated = rotate(cur, b);
+            if (seen.add(rotated))
+                queue.offer(rotated);
+        }
+        return res;
+    }
+
+    private String add(String s, int a) {
+        char[] ch = s.toCharArray();
+        for (int i = 1; i < ch.length; i += 2)
+            ch[i] = (char) ((ch[i] - '0' + a) % 10 + '0');
+        return new String(ch);
+    }
+
+    private String rotate(String s, int b) {
+        int n = s.length();
+        b %= n;
+        return s.substring(n - b) + s.substring(0, n - b);
+    }
     public int maxDistinctElements(int[] nums, int k) {
         Arrays.sort(nums);
         int count = 0;
