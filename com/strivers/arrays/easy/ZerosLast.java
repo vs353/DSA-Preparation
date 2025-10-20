@@ -240,6 +240,12 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int finalValueAfterOperations(String[] operations) {
+        int x = 0;
+        for (String op : operations)
+            x += (op.charAt(1) == '+') ? 1 : -1;
+        return x;
+    }
     public String findLexSmallestString(String s, int a, int b) {
         Set<String> seen = new HashSet<>();
         Queue<String> queue = new LinkedList<>();
