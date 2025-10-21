@@ -240,6 +240,29 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int maxFrequency(int[] nums, int k, int numOperations) {
+        int n = nums.length;
+        int maxV = 0;
+        for (int v : nums)
+            maxV = Math.max(maxV, v);
+        int size = maxV + k + 1;
+        int[] freq = new int[size];
+        for (int v : nums)
+            freq[v]++;
+        int[] pref = new int[size + 1];
+        for (int i = 0; i < size; i++)
+            pref[i + 1] = pref[i] + freq[i];
+        int res = 0;
+        for (int t = 0; t < size; t++) {
+            int left = Math.max(0, t - k);
+            int right = Math.min(size - 1, t + k);
+            int totalInRange = pref[right + 1] - pref[left];
+            int already = freq[t];
+            int canChange = Math.min(totalInRange - already, numOperations);
+            res = Math.max(res, already + canChange);
+        }
+        return res;
+    }
     public int finalValueAfterOperations(String[] operations) {
         int x = 0;
         for (String op : operations)
