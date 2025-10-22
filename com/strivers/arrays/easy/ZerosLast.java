@@ -240,6 +240,28 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int maxFrequency1(int[] nums, int k, int numOperations) {
+        Map<Long, Integer> startEnd = new TreeMap<>();
+        Map<Long, Integer> countExact = new HashMap<>();
+        for (int v : nums) {
+            long start = (long) v - k;
+            long end = (long) v + k + 1;
+            startEnd.put(start, startEnd.getOrDefault(start, 0) + 1);
+            startEnd.put(end, startEnd.getOrDefault(end, 0) - 1);
+            countExact.put((long) v, countExact.getOrDefault((long) v, 0) + 1);
+        }
+
+        long current = 0;
+        int result = 1;
+        for (Map.Entry<Long, Integer> e : startEnd.entrySet()) {
+            long x = e.getKey();
+            current += e.getValue();
+            int already = countExact.getOrDefault(x, 0);
+            int possible = (int) Math.min(current, (long) already + numOperations);
+            result = Math.max(result, possible);
+        }
+        return result;
+    }
     public int maxFrequency(int[] nums, int k, int numOperations) {
         int n = nums.length;
         int maxV = 0;
