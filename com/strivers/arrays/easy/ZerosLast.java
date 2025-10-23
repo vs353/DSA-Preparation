@@ -240,6 +240,17 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public boolean hasSameDigits(String s) {
+        while (s.length() > 2) {
+            StringBuilder t = new StringBuilder();
+            for (int i = 0; i < s.length() - 1; i++) {
+                int sum = (s.charAt(i) - '0' + s.charAt(i + 1) - '0') % 10;
+                t.append(sum);
+            }
+            s = t.toString();
+        }
+        return s.charAt(0) == s.charAt(1);
+    }
     public int maxFrequency1(int[] nums, int k, int numOperations) {
         Map<Long, Integer> startEnd = new TreeMap<>();
         Map<Long, Integer> countExact = new HashMap<>();
