@@ -240,6 +240,21 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public int nextBeautifulNumber(int n) {
+        for (int i = n + 1;; i++)
+            if (isBalanced(i))
+                return i;
+    }
+
+    private boolean isBalanced(int num) {
+        int[] count = new int[10];
+        for (char c : String.valueOf(num).toCharArray())
+            count[c - '0']++;
+        for (int d = 0; d < 10; d++)
+            if (count[d] != 0 && count[d] != d)
+                return false;
+        return true;
+    }
     public boolean hasSameDigits(String s) {
         while (s.length() > 2) {
             StringBuilder t = new StringBuilder();
