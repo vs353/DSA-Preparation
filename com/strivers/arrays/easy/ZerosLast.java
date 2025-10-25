@@ -240,6 +240,15 @@ class TaskManager {
 }
 
 public class ZerosLast {
+    public static int totalMoney(int n) {
+        int weeks = n / 7;
+        int days = n % 7;
+        int total = 0;
+        total += 28 * weeks + 7 * (weeks * (weeks - 1)) / 2;
+        total += (weeks + 1 + weeks + days) * days / 2;
+        return total;
+    }
+
     public int nextBeautifulNumber(int n) {
         for (int i = n + 1;; i++)
             if (isBalanced(i))
