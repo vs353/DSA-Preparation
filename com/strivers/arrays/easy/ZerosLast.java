@@ -240,6 +240,36 @@ class TaskManager {
 }
 
 class Bank {
+    public int countValidSelections(int[] nums) {
+        int n = nums.length, res = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0) {
+                int[] a = nums.clone();
+                if (simulate(a.clone(), i, 1))
+                    res++;
+                if (simulate(a.clone(), i, -1))
+                    res++;
+            }
+        }
+        return res;
+    }
+
+    private boolean simulate(int[] nums, int curr, int dir) {
+        int n = nums.length;
+        while (curr >= 0 && curr < n) {
+            if (nums[curr] == 0)
+                curr += dir;
+            else {
+                nums[curr]--;
+                dir = -dir;
+                curr += dir;
+            }
+        }
+        for (int x : nums)
+            if (x != 0)
+                return false;
+        return true;
+    }
     public int numberOfBeams(String[] bank) {
         int prev = 0, total = 0;
         for (String row : bank) {
