@@ -240,6 +240,12 @@ class TaskManager {
 }
 
 class Bank {
+    public int smallestNumber(int n) {
+        int x = 1;
+        while ((1 << x) - 1 < n)
+            x++;
+        return (1 << x) - 1;
+    }
     public int countValidSelections(int[] nums) {
         int n = nums.length, res = 0;
         for (int i = 0; i < n; i++) {
