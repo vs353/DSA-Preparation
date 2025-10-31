@@ -240,6 +240,19 @@ class TaskManager {
 }
 
 class Bank {
+    public int[] getSneakyNumbers(int[] nums) {
+        int n = nums.length;
+        boolean[] seen = new boolean[n];
+        int[] res = new int[2];
+        int idx = 0;
+        for (int num : nums) {
+            if (seen[num])
+                res[idx++] = num;
+            else
+                seen[num] = true;
+        }
+        return res;
+    }
     public int minNumberOperations(int[] target) {
         int res = target[0];
         for (int i = 1; i < target.length; i++) {
