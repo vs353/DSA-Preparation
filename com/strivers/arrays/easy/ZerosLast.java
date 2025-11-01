@@ -240,6 +240,22 @@ class TaskManager {
 }
 
 class Bank {
+    public ListNode modifiedList(int[] nums, ListNode head) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums)
+            set.add(num);
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        while (head != null) {
+            if (!set.contains(head.val)) {
+                curr.next = head;
+                curr = curr.next;
+            }
+            head = head.next;
+        }
+        curr.next = null;
+        return dummy.next;
+    }
     public int[] getSneakyNumbers(int[] nums) {
         int n = nums.length;
         boolean[] seen = new boolean[n];
