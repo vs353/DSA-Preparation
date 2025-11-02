@@ -240,6 +240,33 @@ class TaskManager {
 }
 
 class Bank {
+    public int countUnguarded(int m, int n, int[][] guards, int[][] walls) {
+        int[][] grid = new int[m][n];
+        for (int[] w : walls)
+            grid[w[0]][w[1]] = 2;
+        for (int[] g : guards)
+            grid[g[0]][g[1]] = 1;
+        for (int[] g : guards) {
+            for (int i = g[0] - 1; i >= 0 && grid[i][g[1]] != 1 && grid[i][g[1]] != 2; i--)
+                if (grid[i][g[1]] == 0)
+                    grid[i][g[1]] = 3;
+            for (int i = g[0] + 1; i < m && grid[i][g[1]] != 1 && grid[i][g[1]] != 2; i++)
+                if (grid[i][g[1]] == 0)
+                    grid[i][g[1]] = 3;
+            for (int j = g[1] - 1; j >= 0 && grid[g[0]][j] != 1 && grid[g[0]][j] != 2; j--)
+                if (grid[g[0]][j] == 0)
+                    grid[g[0]][j] = 3;
+            for (int j = g[1] + 1; j < n && grid[g[0]][j] != 1 && grid[g[0]][j] != 2; j++)
+                if (grid[g[0]][j] == 0)
+                    grid[g[0]][j] = 3;
+        }
+        int res = 0;
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                if (grid[i][j] == 0)
+                    res++;
+        return res;
+    }
     public ListNode modifiedList(int[] nums, ListNode head) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums)
