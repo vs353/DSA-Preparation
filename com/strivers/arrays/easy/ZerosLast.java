@@ -240,6 +240,17 @@ class TaskManager {
 }
 
 class Bank {
+    public int minCost(String colors, int[] neededTime) {
+        int totalTime = 0;
+        int n = colors.length();
+        for (int i = 1; i < n; i++) {
+            if (colors.charAt(i) == colors.charAt(i - 1)) {
+                totalTime += Math.min(neededTime[i], neededTime[i - 1]);
+                neededTime[i] = Math.max(neededTime[i], neededTime[i - 1]);
+            }
+        }
+        return totalTime;
+    }
     public int countUnguarded(int m, int n, int[][] guards, int[][] walls) {
         int[][] grid = new int[m][n];
         for (int[] w : walls)
