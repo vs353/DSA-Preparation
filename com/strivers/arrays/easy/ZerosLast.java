@@ -189,6 +189,72 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int[] processQueries(int c, int[][] connections, int[][] queries) {
+        UnionFind uf = new UnionFind(c + 1);
+        for (int[] e : connections)
+            uf.union(e[0], e[1]);
+        Map<Integer, TreeSet<Integer>> online = new HashMap<>();
+        for (int i = 1; i <= c; i++) {
+            int root = uf.find(i);
+            online.computeIfAbsent(root, k -> new TreeSet<>()).add(i);
+        }
+        boolean[] off = new boolean[c + 1];
+        List<Integer> res = new ArrayList<>();
+        for (int[] q : queries) {
+            int type = q[0], x = q[1];
+            int root = uf.find(x);
+            if (type == 1) {
+                if (!off[x])
+                    res.add(x);
+                else {
+                    TreeSet<Integer> set = online.get(root);
+                    if (set == null || set.isEmpty())
+                        res.add(-1);
+                    else
+                        res.add(set.first());
+                }
+            } else {
+                if (!off[x]) {
+                    off[x] = true;
+                    TreeSet<Integer> set = online.get(root);
+                    if (set != null)
+                        set.remove(x);
+                }
+            }
+        }
+        return res.stream().mapToInt(i -> i).toArray();
+    }
+
+    static class UnionFind {
+        int[] parent, rank;
+
+        UnionFind(int n) {
+            parent = new int[n];
+            rank = new int[n];
+            for (int i = 0; i < n; i++)
+                parent[i] = i;
+        }
+
+        int find(int x) {
+            if (parent[x] != x)
+                parent[x] = find(parent[x]);
+            return parent[x];
+        }
+
+        void union(int a, int b) {
+            int pa = find(a), pb = find(b);
+            if (pa == pb)
+                return;
+            if (rank[pa] < rank[pb])
+                parent[pa] = pb;
+            else if (rank[pb] < rank[pa])
+                parent[pb] = pa;
+            else {
+                parent[pb] = pa;
+                rank[pa]++;
+            }
+        }
+    }
     private Map<Integer, int[]> taskMap;
     private PriorityQueue<int[]> pq;
     public TaskManager(List<List<Integer>> tasks) {
