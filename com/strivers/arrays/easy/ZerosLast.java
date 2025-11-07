@@ -189,6 +189,49 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public long maxPower(int[] stations, int r, int k) {
+        int n = stations.length;
+        long[] prefix = new long[n + 1];
+        for (int i = 0; i < n; i++)
+            prefix[i + 1] = prefix[i] + stations[i];
+        long[] power = new long[n];
+        for (int i = 0; i < n; i++) {
+            int left = Math.max(0, i - r);
+            int right = Math.min(n - 1, i + r);
+            power[i] = prefix[right + 1] - prefix[left];
+        }
+        long low = 0, high = (long) 1e18, ans = 0;
+        while (low <= high) {
+            long mid = (low + high) / 2;
+            if (can(power.clone(), r, k, mid)) {
+                ans = mid;
+                low = mid + 1;
+            } else
+                high = mid - 1;
+        }
+        return ans;
+    }
+
+    private boolean can(long[] power, int r, long k, long target) {
+        int n = power.length;
+        long added = 0;
+        long[] diff = new long[n + 1];
+        long currAdd = 0;
+        for (int i = 0; i < n; i++) {
+            currAdd += diff[i];
+            power[i] += currAdd;
+            if (power[i] < target) {
+                long need = target - power[i];
+                added += need;
+                if (added > k)
+                    return false;
+                currAdd += need;
+                if (i + 2 * r + 1 < diff.length)
+                    diff[i + 2 * r + 1] -= need;
+            }
+        }
+        return true;
+    }
     public int[] processQueries(int c, int[][] connections, int[][] queries) {
         UnionFind uf = new UnionFind(c + 1);
         for (int[] e : connections)
