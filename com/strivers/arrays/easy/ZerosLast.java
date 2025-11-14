@@ -189,6 +189,26 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int[][] rangeAddQueries(int n, int[][] queries) {
+        int[][] diff = new int[n + 1][n + 1];
+        for (int[] q : queries) {
+            int r1 = q[0], c1 = q[1], r2 = q[2], c2 = q[3];
+            diff[r1][c1]++;
+            diff[r1][c2 + 1]--;
+            diff[r2 + 1][c1]--;
+            diff[r2 + 1][c2 + 1]++;
+        }
+        int[][] res = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int top = i > 0 ? res[i - 1][j] : 0;
+                int left = j > 0 ? res[i][j - 1] : 0;
+                int diag = (i > 0 && j > 0) ? res[i - 1][j - 1] : 0;
+                res[i][j] = top + left - diag + diff[i][j];
+            }
+        }
+        return res;
+    }
     public int minOperations(int[] nums) {
         int n = nums.length;
         int ones = 0;
