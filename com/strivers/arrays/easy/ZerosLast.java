@@ -189,6 +189,17 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public boolean kLengthApart(int[] nums, int k) {
+        int last = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                if (last != -1 && i - last - 1 < k)
+                    return false;
+                last = i;
+            }
+        }
+        return true;
+    }
     public int numSub(String s) {
         long ans = 0, count = 0, mod = 1000000007;
         for (char c : s.toCharArray()) {
