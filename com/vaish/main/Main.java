@@ -1,5 +1,6 @@
 package com.vaish.main;
 
+import com.strivers.arrays.easy.ZerosLast;
 import com.vaish.practice.leetcode.*;
 import com.vaish.practice.leetcode.array.CheckArrayIsSorted_1752;
 import com.vaish.practice.leetcode.hashing.LC_ArrayDistinct_3396;
@@ -112,7 +113,12 @@ public class Main {
     //921,983    [16-11-2025]
     //916,369    [17-11-2025]
     //911,198    [18-11-2025]
+    //911,198    [19-11-2025]
     public static void main(String[] args) {
+        int[] nums = {5,3,6,1,12};
+        int original = 3;
+        int answer = ZerosLast.findFinalValue(nums , original);
+        System.out.println(answer);
 //     System.out.println("HELLO World");
 //     Arrays.sample();
 //     int countDigits = CountDigits.countDigits(797);
@@ -278,7 +284,7 @@ public class Main {
 //        String[] s1 = Task_724.findWords(words);
 //        System.out.println(Arrays.toString(s1));
 
-        int[] nums = {1,3};
+//        int[] nums = {1,3};
         int target = 1;
 
 //        int[] ars = Task_11.searchRange(nums, target);

@@ -189,6 +189,16 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+//    public int findFinalValue(int[] nums, int original) {
+//        for(int i = 0; i<nums.length; i++){
+//            int newOrg =0;
+//            if(nums[i]==original){
+//                newOrg = nums[i]*2;
+//            }
+//            original = newOrg;
+//        }
+//        return  original;
+//    }
     public boolean isOneBitCharacter(int[] bits) {
         int i = 0;
         while (i < bits.length - 1) {
@@ -644,6 +654,29 @@ public class ZerosLast {
         total += 28 * weeks + 7 * (weeks * (weeks - 1)) / 2;
         total += (weeks + 1 + weeks + days) * days / 2;
         return total;
+    }
+
+    public static int findFinalValue(int[] nums, int original) {
+        boolean found = true;
+        while (found) {
+            found = false;
+            for (int num : nums) {
+                if (num == original) {
+                    original *= 2;
+                    found = true;
+                    break;
+                }
+            }
+        }
+        return original;
+//        int newOrg =0;
+//        for(int i = 0; i<nums.length; i++){
+//            if(nums[i]==original){
+//                newOrg = nums[i]*2;
+//                original = newOrg;
+//            }
+//        }
+//        return original;
     }
 
     public int nextBeautifulNumber(int n) {
