@@ -114,6 +114,7 @@ public class Main {
     //916,369    [17-11-2025]
     //911,198    [18-11-2025]
     //911,198    [19-11-2025]
+    //899,923    [20-11-2025]
     public static void main(String[] args) {
         int[] nums = {5,3,6,1,12};
         int original = 3;

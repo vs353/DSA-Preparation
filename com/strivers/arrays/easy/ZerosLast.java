@@ -189,6 +189,22 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int intersectionSizeTwo(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> a[1] == b[1] ? b[0] - a[0] : a[1] - b[1]);
+        int a = -1, b = -1, res = 0;
+        for (int[] in : intervals) {
+            if (in[0] > b) {
+                res += 2;
+                a = in[1] - 1;
+                b = in[1];
+            } else if (in[0] > a) {
+                res++;
+                a = b;
+                b = in[1];
+            }
+        }
+        return res;
+    }
 //    public int findFinalValue(int[] nums, int original) {
 //        for(int i = 0; i<nums.length; i++){
 //            int newOrg =0;
