@@ -189,6 +189,19 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int countPalindromicSubsequence(String s) {
+        int n = s.length(), count = 0;
+        for (char c = 'a'; c <= 'z'; c++) {
+            int first = s.indexOf(c), last = s.lastIndexOf(c);
+            if (first + 1 < last) {
+                HashSet<Character> set = new HashSet<>();
+                for (int i = first + 1; i < last; i++)
+                    set.add(s.charAt(i));
+                count += set.size();
+            }
+        }
+        return count;
+    }
     public int intersectionSizeTwo(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[1] == b[1] ? b[0] - a[0] : a[1] - b[1]);
         int a = -1, b = -1, res = 0;
