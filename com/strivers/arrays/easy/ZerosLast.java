@@ -189,6 +189,13 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int minimumOperations(int[] nums) {
+        int ops = 0;
+        for (int num : nums)
+            if (num % 3 != 0)
+                ops++;
+        return ops;
+    }
     public int countPalindromicSubsequence(String s) {
         int n = s.length(), count = 0;
         for (char c = 'a'; c <= 'z'; c++) {
