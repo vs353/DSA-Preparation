@@ -189,6 +189,35 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int maxKDivisibleComponents(int n, int[][] edges, int[] values, int k) {
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++)
+            graph.add(new ArrayList<>());
+        for (int[] e : edges) {
+            graph.get(e[0]).add(e[1]);
+            graph.get(e[1]).add(e[0]);
+        }
+
+        int[] result = new int[1];
+        dfs(0, -1, graph, values, k, result);
+        return result[0];
+    }
+
+    private long dfs(int node, int parent, List<List<Integer>> graph, int[] values, int k, int[] result) {
+        long sum = values[node];
+
+        for (int next : graph.get(node)) {
+            if (next == parent)
+                continue;
+            long childSum = dfs(next, node, graph, values, k, result);
+            sum += childSum;
+        }
+        if (sum % k == 0) {
+            result[0]++;
+            return 0;
+        }
+        return sum;
+    }
     public int numberOfPaths(int[][] grid, int k) {
         int m = grid.length, n = grid[0].length;
         int mod = 1000000007;
