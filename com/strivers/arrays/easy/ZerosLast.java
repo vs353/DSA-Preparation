@@ -189,6 +189,15 @@ class Spreadsheet {
     }
 }
 class TaskManager {
+    public int minOperations(int[] nums, int k) {
+        int sum = 0;
+        for (int num : nums) sum += num;
+
+        int remainder = sum % k;
+        if (remainder == 0) return 0;
+
+        return remainder;
+    }
     public int maxKDivisibleComponents(int n, int[][] edges, int[] values, int k) {
         List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < n; i++)
