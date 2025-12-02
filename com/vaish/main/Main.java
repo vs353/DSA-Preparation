@@ -125,6 +125,7 @@ public class Main {
     //875,621    [28-11-2025]
     //870,505    [29-11-2025]
     //865,466    [30-11-2025]
+    //860,985    [02-12-2025]
     public static void main(String[] args) {
         int[] nums = {5,3,6,1,12};
         int original = 3;
